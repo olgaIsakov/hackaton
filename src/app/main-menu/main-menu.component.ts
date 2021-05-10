@@ -37,6 +37,7 @@ export class MainMenuComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
+  ijuhih
   update() {
     throw new Error('Method not implemented.');
   }
