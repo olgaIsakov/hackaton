@@ -37,6 +37,9 @@ export class MainMenuComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
+=======
+  }ljoigi
+>>>>>>> Amoss
   update() {
     throw new Error('Method not implemented.');
   }
