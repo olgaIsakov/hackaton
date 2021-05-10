@@ -37,7 +37,6 @@ export class MainMenuComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  rg
   update() {
     throw new Error('Method not implemented.');
   }
