@@ -36,6 +36,7 @@ export class MainMenuComponent implements OnInit {
   delete() {
     throw new Error('Method not implemented.');
   }
+
   update() {
     throw new Error('Method not implemented.');
   }
