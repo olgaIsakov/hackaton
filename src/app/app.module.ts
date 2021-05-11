@@ -8,12 +8,16 @@ import { TmpComponent } from './tmp/tmp.component';
 import {MenuModule} from 'primeng/menu';
 import {MenuItem} from 'primeng/api';
 import {ButtonModule} from 'primeng/button';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    TmpComponent
+    TmpComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
