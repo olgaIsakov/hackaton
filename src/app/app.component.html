@@ -1,6 +1,12 @@
 <!-- <app-tmp></app-tmp> -->
 <!-- <app-main-menu></app-main-menu> -->
 <h5>{{text}}</h5>
+
+<span class="p-input-icon-left">
+  <i class="pi pi-search"></i>
+  <input type="text" pInputText [(ngModel)]="value1" placeholder="Search">
+</span>
+<br>
 <div class="editor">
   <p-editor [(ngModel)]="text" [style]="{'height':'30vh','width':'30vw'}">
     <ng-template pTemplate="header" >
@@ -12,7 +18,8 @@
     </ng-template>
 </p-editor>
 </div>
+<p-button label="Submit" icon="pi pi-check" (onClick)="sumbit()"></p-button>
 <br>
 
-<p-button label="Submit" icon="pi pi-check" (onClick)="sumbit()"></p-button>
+
 
