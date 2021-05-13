@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   text="";
-  value1 = "";
-
+  searchValue = "";
   sumbit(){
     this.text="this works!!"
   }

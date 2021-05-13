@@ -12,7 +12,6 @@ import {TableModule} from 'primeng/table';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SubmitPostComponent } from './submit-post/submit-post.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 
@@ -23,7 +22,6 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     SignInComponent,
     SignUpComponent,
     SubmitPostComponent,
-    SearchBarComponent
   ],
   imports: [
     BrowserModule,
