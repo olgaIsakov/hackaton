@@ -12,7 +12,10 @@ import {TableModule} from 'primeng/table';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SubmitPostComponent } from './submit-post/submit-post.component';
+import {TabMenuModule} from 'primeng/tabmenu';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
+import {MegaMenuItem} from 'primeng/api';
 
 
 @NgModule({
@@ -22,6 +25,8 @@ import { SubmitPostComponent } from './submit-post/submit-post.component';
     SignInComponent,
     SignUpComponent,
     SubmitPostComponent,
+    MainMenuComponent
+
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,7 @@ import { SubmitPostComponent } from './submit-post/submit-post.component';
     ButtonModule,
     EditorModule,
     FormsModule,
+    TabMenuModule,
     TableModule
   ],
   providers: [],
