@@ -4,7 +4,6 @@ import {EditorModule} from 'primeng/editor';
 import {FormsModule} from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainMenuComponent } from './main-menu/main-menu.component';
 import { TmpComponent } from './tmp/tmp.component';
 import {MenuModule} from 'primeng/menu';
 import {MenuItem} from 'primeng/api';
@@ -20,7 +19,6 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent,
     TmpComponent,
     SignInComponent,
     SignUpComponent,
