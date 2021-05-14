@@ -14,6 +14,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SubmitPostComponent } from './submit-post/submit-post.component';
 import {TabMenuModule} from 'primeng/tabmenu';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { ClarityModule } from '@clr/angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {MegaMenuItem} from 'primeng/api';
 
@@ -36,7 +39,10 @@ import {MegaMenuItem} from 'primeng/api';
     EditorModule,
     FormsModule,
     TabMenuModule,
-    TableModule
+    TableModule,
+    BrowserAnimationsModule,
+     ClarityModule,
+     FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
