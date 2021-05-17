@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { CommentsComponent } from './../comments/comments.component';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -16,6 +17,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CommentboxComponent implements OnInit {
   commentForm!: FormGroup;
+  comments:Array<object> = [];
+  count: any;
+  postComment :Array<object> = [];
   commentInfo: Array<object> = [];
   submitted: Boolean = false;
   public id = 0;
@@ -27,11 +31,18 @@ export class CommentboxComponent implements OnInit {
     this.createForm();
   }
 
+
+
+  receiveComment(event:any) {
+    alert("rgr");
+    this.comments = event;
+    this.count = this.comments.length;
+    console.log(this.comments);
+  }
+
   createForm() {
     this.commentForm = this.formBuilder.group({
-      comment: [
-        '',
-        [
+      comment: ['',[
           Validators.required,
           Validators.minLength(6),
           Validators.maxLength(100),
@@ -41,14 +52,17 @@ export class CommentboxComponent implements OnInit {
   }
 
   onSubmit() {
+    var elem = document.getElementsByClassName("form-group");
+    alert(elem.toString());
+    // @ViewChild('form-group') formgroup: ElementRef;
+    // elem.toString
+    let comment = [];
+comment.push({commentId: this.id++,currentDate: new Date(),commentTxt: this.commentForm.controls['comment'].value,replyComment: [],})
     this.submitted = true;
-      this.commentInfo.push({
-        commentId: this.id++,
-        currentDate: new Date(),
-        commentTxt: this.commentForm.controls['comment'].value,
-        replyComment: [],
-      });
-      this.usercomment.emit(this.commentInfo);
+      this.comments.push(this.commentInfo);
+
+      // this.usercomment.emit(this.commentInfo);
+
     return true;
   }
 }

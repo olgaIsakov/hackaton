@@ -1,0 +1,53 @@
+<div class="comments-app" ng-app="addCommentsApp" ng-controller="AddCommentsController as commCtrl">
+
+  <div class="comments">
+
+    <div class="comment" hide-me="5000" ng-repeat="comment in commCtrl.comments | orderBy: 'date'">
+
+      <div class="comment-box">
+        <div class="comment-footer">
+          <div class="comment-info">
+            <!-- <span class="comment-date">{{ vm.comment.date | date: 'medium' }}</span> -->
+          </div>
+
+          <div class="comment-actions">
+            <a href="" ng-click="commCtrl.reply(comment)">Reply</a>
+
+            <div ng-if="comment.showReply">
+              <div class="comment" hide-me="5000" ng-repeat="subcomment in comment.comments | orderBy: 'date'">
+
+                <p>{{vm.subcomment.text}}</p>
+
+              </div>
+
+              <form class="form" name="form" ng-submit="form.$valid && commCtrl.addComment(comment)" novalidate>
+                <div class="form-row">
+                  <textarea class="input" ng-model="comment.comment.text" placeholder="Add comment..." required></textarea>
+                </div>
+
+                <div class="form-row">
+                  <input type="submit" value="SEND">
+                </div>
+              </form>
+
+            </div>
+          </div>
+          <div class="comment-text">{{ vm.comment.text }}</div>
+        </div>
+      </div>
+    </div>
+    <!-- From -->
+    <div class="comment-form">
+
+      <form class="form" name="form" ng-submit="form.$valid && commCtrl.addComment()" novalidate>
+        <div class="form-row">
+          <textarea class="input" ng-model="commCtrl.comment.text" placeholder="Add comment..." required></textarea>
+        </div>
+
+        <div class="form-row">
+          <input type="submit" value="SEND">
+        </div>
+      </form>
+
+    </div>
+  </div>

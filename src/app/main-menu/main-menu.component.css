@@ -1,3 +1,41 @@
-.custom .ui-menuitem-text	 {
-  background-color: red !important;
+
+::ng-deep .p-tabmenu .p-tabmenu-nav{
+  background-color:#e8f8ff !important;
+
+
+}
+/* .menu .ui-menu-item{
+  color: red !important;
+
+}
+
+:host ::ng-deep .p-tabmenu .nav-p-reset{
+  color: rgb(43, 0, 122) !important;
+}
+
+
+
+:host ::ng-deep .p-menuitem-text {
+  margin: 0;
+  padding: .25em .5em 0 .25em;
+  color:salmon;
+}
+ */
+ :host ::ng-deep .p-menuitem-link .p-ripple{
+background-color: black;
+color: black;
+
+ }
+
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+  background-color:#e8f8ff;
+  /* border: 1px solid #2e2e2e; */
+  color: rgb(31, 69, 95);
+
+}
+
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+  background-color:#e8f8ff;
+color:rgb(133, 133, 133);
+  /* border: 1px solid blue; */
 }
