@@ -1,23 +1,21 @@
 <head>
 
 
-
 </head>
 
 <body>
-<div class="">
-  <!-- <h2 [routerLink] = "'/Home'">Contacts</h2> -->
+  <router-outlet></router-outlet>
+  <app-main-menu></app-main-menu>
 
-  <!-- <router-outlet></router-outlet> -->
+<div class="">
 
 <span class="p-input-icon-right">
   <i class="pi pi-search"></i>
   <input type="text" pInputText [(ngModel)]="searchValue" >
 </span>
-<router-outlet></router-outlet>
 
-<!-- <app-submit-post></app-submit-post> -->
-<app-main-menu></app-main-menu>
+
+
 
 </div>
 </body>
