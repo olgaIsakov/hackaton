@@ -35,18 +35,21 @@ export class ChildboxComponent implements OnInit {
 
 
   onSubmit() {
-    this.submitted = true;
-    if (this.childForm.invalid) {
-      return false;
-    } else {
-      this.replyComment.push({
-        currentDate : new Date(),
-        commentTxt: this.childForm.controls['comment'].value
-      });
-      this.userReplycomment.emit(this.replyComment);
-      this.deletNo.emit(this.commentNo);
-    }
-    return true;
+    // this.submitted = true;
+    // if (this.childForm.invalid) {
+    //   return false;
+    // } else {
+    //   this.replyComment.push({
+    //     currentDate : new Date(),
+    //     commentTxt: this.childForm.controls['comment'].value
+    //   });
+    //   this.userReplycomment.emit(this.replyComment);
+    //   this.deletNo.emit(this.commentNo);
+    // }
+
+    // return true;
+
+    alert("hi");
   }
 
 

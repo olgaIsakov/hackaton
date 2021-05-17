@@ -19,6 +19,7 @@ export class DatacontainerDirective  {
 })
 
 export class CommentsComponent implements OnInit, OnChanges{
+
   @Input() postComment :Array<any|string> = [];
   @Output() countComments = new EventEmitter();
   public loadComponent = false;
@@ -32,6 +33,8 @@ export class CommentsComponent implements OnInit, OnChanges{
   when the state of the application changes Angular will
   automatically update the object items for you. */
   @ViewChildren (DatacontainerDirective) entry!: QueryList<DatacontainerDirective>;
+  comments: any;
+  count: any;
 
   constructor(private resolver: ComponentFactoryResolver) { }
 
@@ -40,10 +43,20 @@ export class CommentsComponent implements OnInit, OnChanges{
 
 
   ngOnChanges() {
+    alert(this.postComment);
     if (this.postComment !== undefined) {
       console.log('Main array====>', this.postComment);
     }
   }
+
+  receiveComment(event:any) {
+    alert("rgr");
+    this.comments = event;
+    this.count = this.comments.length;
+    console.log(this.comments);
+  }
+
+
 
   removeComment(no:any) {
     this.postComment.splice(no, 1);
@@ -52,6 +65,8 @@ export class CommentsComponent implements OnInit, OnChanges{
   }
 
   replyComment(index:number) {
+
+
     this.loadComponent = true;
     const myFactory = this.resolver.resolveComponentFactory(ChildboxComponent);
     if (this.entry.toArray()[index].viewContainerRef.length <= 0 ) {

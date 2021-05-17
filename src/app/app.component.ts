@@ -26,13 +26,6 @@ export class AppComponent implements OnInit {
   }
 
 
-  receiveComment($event:any) {
-    this.comments = $event;
-    this.count = this.comments.length;
-    console.log(this.comments.length);
-  }
-
-
   recieveCount($event:any) {
     this.comments = $event;
     this.count = this.comments.length;

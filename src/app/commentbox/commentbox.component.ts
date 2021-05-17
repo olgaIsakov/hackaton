@@ -1,3 +1,4 @@
+import { CommentsComponent } from './../comments/comments.component';
 import { Component, OnInit } from '@angular/core';
 import {
   AfterViewInit,
@@ -18,7 +19,7 @@ export class CommentboxComponent implements OnInit {
   commentInfo: Array<object> = [];
   submitted: Boolean = false;
   public id = 0;
-  @Output() usercomment = new EventEmitter();
+  @Output() usercomment = new EventEmitter< Array<object>>();
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -41,10 +42,6 @@ export class CommentboxComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    // stop here if form is invalid
-    if (this.commentForm.invalid) {
-      return false;
-    } else {
       this.commentInfo.push({
         commentId: this.id++,
         currentDate: new Date(),
@@ -52,7 +49,6 @@ export class CommentboxComponent implements OnInit {
         replyComment: [],
       });
       this.usercomment.emit(this.commentInfo);
-    }
     return true;
   }
 }
