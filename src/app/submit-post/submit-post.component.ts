@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SubmitPostComponent implements OnInit {
 
   text="";
-
+  
   constructor() {
 
    }
