@@ -17,10 +17,12 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {CardModule} from 'primeng/card';
 import { CommentboxComponent } from './commentbox/commentbox.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ChildboxComponent } from './childbox/childbox.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { ChildboxComponent } from './childbox/childbox.component';
     CommentboxComponent,
     CommentsComponent,
     ChildboxComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,8 @@ import { ChildboxComponent } from './childbox/childbox.component';
     BrowserAnimationsModule,
     ClarityModule,
     FontAwesomeModule,
+    InputSwitchModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
