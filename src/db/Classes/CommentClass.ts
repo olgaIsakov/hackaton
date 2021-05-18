@@ -1,31 +1,38 @@
-import Api from "./Api"
 import {getComments} from "src/db/Classes/Api"
 import {createComment, updateComment} from "src/db/Classes/Api"
 
 var last_ind=0;
 export class CommentClass{
  
-  CID!: string;
-  body!: string;
-  authorID: number;
-  date!: Date;
-  subComment:Boolean | undefined;
-  replyingTo!: Number;
-  visableToAll!: boolean;
-  visableTo!: Array<number>;
-  callerID: number;
-  postAutherID!: string;
+  CID!: string
+  body!: string
+  authorID: string
+  date!: Date
+  subComment!:Boolean
+  replyingTo!: Number
+  visableToAll!: boolean
+  visableTo!: Array<number>
+  callerID: string
+  postAutherID!: string
 
 
-  constructor(callerID=-1, body="",authorID=-1,replyingTo=-1, CID =-1, postAutherID="-1"){
-    if(CID == -1){
-     this.CID= getCID();
+  constructor(CID="-1", body="",authorID="-1",replyingTo="-1", callerID ="-1", postAutherID="-1"){
+    if(CID == "-1"){
+      this.CID= getCID()
     }
+    else{
+      this.CID=CID
+    }
+    console.log("cid isnt -1")
+    console.log(this.CID)
+    this.body=body
     this.date=new Date()
-    this.authorID =authorID;
-    this.visableToAll=true;
-    this.callerID = callerID;
-    this.postAutherID=postAutherID;
+    this.authorID =authorID
+    this.visableToAll=true
+    this.callerID = callerID
+    this.postAutherID=postAutherID
+    this.subComment=false
+    this.visableTo=[]
   }
 
   upload(){
@@ -47,5 +54,7 @@ export class CommentClass{
 function getCID(): string {
   var rt = last_ind.toString();
   last_ind++;
+  console.log("the rt is")
+  console.log(rt)
   return rt;
 }

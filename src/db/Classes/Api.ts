@@ -5,24 +5,25 @@ import * as $ from 'jquery'
 export default class Api{
   
     
-    // idk why i made this class...
+    // if i delete it get stuck..
 }
 export function getPostByPID(PID: string){
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/dynamodb-readonly'+'?index='+PID;
     return $.getJSON(getPostURL, (res:any )=> {ConvertJsonToSinglePostBody(res);}) ;
   }
-
+// before tests
 export function login(username: string, password: string){
-    let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/login'+'?username='+username+"&"+password;
+    let getPostURL = 'https://5f52owjwyl.execute-api.eu-central-1.amazonaws.com/default/signin'+'?username='+username+"&"+password;
     $.getJSON(getPostURL, res=> {return ConvertJsonToRespon(res)}) ;
 }
+
+//works
 export function signup(username: string, password: string): string{
     let getPostURL = 'https://5268gn05lh.execute-api.eu-central-1.amazonaws.com/default/signup'+'?username='+username+"&password="+password;
     var rt="error";
-    var res=$.getJSON(getPostURL , function( json ) {
+    var res=$.getJSON(getPostURL , function( json) {
         console.log( "JSON Data: " + json.rt);
-    rt = json.rt;})
-    
+    rt = json.rt;})    
     return rt
 }
 
@@ -46,7 +47,7 @@ export function ConvertJsonToPosts(res: {[index: string]:any}){
 export function ConvertJsonToSinglePostBody(res: {[index: string]:any}){
         return res["body"];
 }
-
+// not working - need to prase json
 export function getAllPosts(callerID=-1, without_tags=[], search_key="", userID=-1){
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/getAllpost?'+callerID.toString();
     if(search_key!=""){
@@ -74,6 +75,7 @@ export function ConvertJsonToComments(res: {[index: string]:any}) : CommentClass
     return comments_list;
 }
 
+// need to prase json
 export function getComments(callerID:string, PID: string): CommentClass[]{
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/getComments?'
                     +callerID +"&"+PID;
@@ -83,32 +85,48 @@ export function getComments(callerID:string, PID: string): CommentClass[]{
     
 }
 
+// works, add date
 export function  createPost (post: Post){
-    let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/create_post?'+post.PID;
+    if(post.PID=="-1"){return;}
+    let getPostURL = 'https://h94t6569ug.execute-api.eu-central-1.amazonaws.com/default/create_post?'+post.PID;
     if(post.body!="")
-        getPostURL+=("&body="+post.body)
-    
+        getPostURL+=("&body="+post.body.replace(" ","_"))
+    else{ return}
+    if(post.authorID!="")
+    getPostURL+=("&authorID="+post.authorID)
+    else{ return}
+    getPostURL+=("&visableToAll="+`${post.visableToAll}`)
     let res = $.getJSON(getPostURL);
-
-    //getPostURL+=("&body="+post.body)
   }
   
-  
+// visableTo, subComment
 export function  createComment (comment: CommentClass){
-    let getURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/create_comment?'+comment.CID;
-    getURL+=("&body="+comment.body);
-    if(comment.visableToAll){
-        getURL+="&visableToAll= true";
-    }
-    else{
-        getURL+="&visableToAll= false";
-        getURL+=("&visableTo="+comment.authorID+","+comment.postAutherID);
+    console.log("in the func")
+    console.log(comment.CID)
+    if(comment.CID=="-1"){return;}
+    let getURL = 'https://2cuaravds1.execute-api.eu-central-1.amazonaws.com/default/create_comment?CID='+comment.CID;
+    if(comment.body!="")
+        getURL+=("&body="+comment.body)
+    else{ return}
+    if(comment.authorID!="")
+        getURL+=("&authorID="+comment.authorID)
+    else{ return}
+    
+    getURL+=("&visableToAll="+`${comment.visableToAll}`)
+    getURL+=("&postAutherID="+`${comment.postAutherID}`)
+    getURL+=("&visableToAll="+`${comment.visableToAll}`)
 
-    }
+    if(comment.callerID!="-1")
+        getURL+=("&callerID="+`${comment.callerID}`)
+    if(comment.replyingTo!=-1)
+        getURL+=("&replyingTo="+`${comment.replyingTo}`)
+    console.log(getURL)
+
     let res = $.getJSON(getURL);
-    return res["statusCode"];
+
   }
 
+  //not implemented
 export function updatePost(post:Post){
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/update_post?'+post.PID;
     getPostURL+=("&body="+post.body)
@@ -116,6 +134,7 @@ export function updatePost(post:Post){
     return res["statusCode"];
 }
 
+  //not implemented
 export function updateComment(comment:CommentClass){
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/update_comment?'+comment.CID;
     getPostURL+=("&body="+comment.body);

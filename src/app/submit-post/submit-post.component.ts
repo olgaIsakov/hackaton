@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Api, { signup } from "src/db/Classes/Api"
+
 @Component({
   selector: 'app-submit-post',
   templateUrl: 'submit-post.component.html',
@@ -13,9 +13,7 @@ export class SubmitPostComponent implements OnInit {
    }
 
    submit(){
-     console.log("submit!")
-    // console.log(signup("second","test"))
-    this.text=signup("second","test")
+    this.text="this works!!"
   }
 
   ngOnInit(): void {

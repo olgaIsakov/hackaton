@@ -1,18 +1,17 @@
 import {CommentClass} from "./CommentClass"
-import Api from "./Api"
 import {getComments, updatePost, createPost} from "src/db/Classes/Api"
 
 var last_ind=0;
 
 export class Post{
-  title : string;
   body: string;
   PID: string;
   date_created!: Date;
   tags : Array<string>;
   comments: Array<CommentClass>;
-  authorID : number;
+  authorID : string;
   callerID: string;
+  visableToAll!: boolean;
 
 
   getComments(){
@@ -32,8 +31,7 @@ export class Post{
     return res;
   }
 
-  constructor(callerID: string, title="", body="", tags=[], authorID=-1){
-    this.title = title;
+  constructor(callerID="-1", body="", tags=[], authorID="-1"){
     this.body = body;
     this.PID = getPID();
     //this.date_created=Date.now();
@@ -41,6 +39,7 @@ export class Post{
     this.comments = this.getComments();
     this.authorID = authorID;
     this.callerID = callerID;
+    this.visableToAll= true;
   }
 
 
