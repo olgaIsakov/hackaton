@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EditorModule } from 'primeng/editor';
@@ -36,6 +37,7 @@ import { CardComponent } from './card/card.component';
     CommentsComponent,
     ChildboxComponent,
     CardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
