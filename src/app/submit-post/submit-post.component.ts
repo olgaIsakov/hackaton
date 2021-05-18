@@ -6,9 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['submit-post.component.css']
 })
 export class SubmitPostComponent implements OnInit {
-
   text="";
-
+  
   constructor() {
 
    }
