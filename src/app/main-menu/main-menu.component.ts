@@ -1,4 +1,3 @@
-import { CardComponent } from './../card/card.component';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router} from '@angular/router';
