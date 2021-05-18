@@ -24,7 +24,7 @@ import { CommentboxComponent } from './commentbox/commentbox.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ChildboxComponent } from './childbox/childbox.component';
 import { CardComponent } from './card/card.component';
-
+import {ToggleButtonModule} from 'primeng/togglebutton';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +53,7 @@ import { CardComponent } from './card/card.component';
     ClarityModule,
     FontAwesomeModule,
     InputSwitchModule,
+    ToggleButtonModule,
     CardModule
   ],
   providers: [],
