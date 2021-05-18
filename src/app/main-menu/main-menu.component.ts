@@ -22,7 +22,7 @@ export class MainMenuComponent implements OnInit {
         {label: 'Home' ,id: 'home', icon: 'pi pi-fw pi-home', routerLink :['/Home']},
         {label: 'Sign In',id: 'signIn', icon: 'pi pi-sign-in', routerLink :['/SignIn']},
         {label: 'Sign Up', id: 'signUp',icon: 'pi pi-user-plus', routerLink :['/SignUp']},
-        {label: 'Add Post', id: 'addPost',icon: 'pi pi-plus-circle', routerLink :['/AddPost']}
+        {label: 'Add Post', id: 'addPost',icon: 'my-margin-right pi pi-plus-circle', routerLink :['/AddPost']}
     ];
  }
 

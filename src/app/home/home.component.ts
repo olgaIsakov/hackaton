@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardComponent } from './../card/card.component';
 
 @Component({
   selector: 'app-home',
@@ -12,4 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getAllPosts(){
+
+  }
 }

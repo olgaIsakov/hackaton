@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EditorModule } from 'primeng/editor';
@@ -17,11 +18,13 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {CardModule} from 'primeng/card';
 import { CommentboxComponent } from './commentbox/commentbox.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ChildboxComponent } from './childbox/childbox.component';
-
+import { CardComponent } from './card/card.component';
+import {ToggleButtonModule} from 'primeng/togglebutton';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,8 @@ import { ChildboxComponent } from './childbox/childbox.component';
     CommentboxComponent,
     CommentsComponent,
     ChildboxComponent,
+    CardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,9 @@ import { ChildboxComponent } from './childbox/childbox.component';
     BrowserAnimationsModule,
     ClarityModule,
     FontAwesomeModule,
+    InputSwitchModule,
+    ToggleButtonModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

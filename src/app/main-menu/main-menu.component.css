@@ -4,6 +4,9 @@
 
 
 }
+
+
+
 /* .menu .ui-menu-item{
   color: red !important;
 
@@ -37,5 +40,6 @@ color: black;
 :host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
   background-color:#e8f8ff;
 color:rgb(133, 133, 133);
+
   /* border: 1px solid blue; */
 }

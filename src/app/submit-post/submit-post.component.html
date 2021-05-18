@@ -1,6 +1,6 @@
 <h5>{{text}}</h5>
 <div class="editor">
-  <p-editor [(ngModel)]="text" [style]="{'height':'30vh','width':'30vw'}">
+  <p-editor [(ngModel)]="text" [style]="{'height':'20vh','width':'50vw'}">
     <ng-template pTemplate="header" >
         <span class="ql-formats">
             <button type="button" class="ql-bold" aria-label="Bold"></button>
@@ -9,7 +9,14 @@
         </span>
     </ng-template>
 </p-editor>
+
+<p>Post Anonymously:</p>
+<p-inputSwitch class="toggle" (onChange)="handleChange($event)"></p-inputSwitch>
+
+<p-button label="Submit" icon="pi pi-check" (onClick)="submit()"></p-button>
+
 </div>
 <br>
 
-<p-button label="Submit" icon="pi pi-check" (onClick)="submit()"></p-button>
+<!-- <p-inputSwitch class="toggle" formControlName="bonus" (onChange)="handleChange($event)" onLabel="yes" offLabel="no"></p-inputSwitch> -->
+

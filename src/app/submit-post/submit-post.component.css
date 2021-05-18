@@ -1,3 +1,11 @@
 .editor{
-  width: 30vw;
+  width: 50vw;
+  margin-left: 25%;
+  margin-right: -50%;
+  align-items: center;
+}
+
+.toggle{
+  padding: 5vw;
+  size: 100vw;
 }
