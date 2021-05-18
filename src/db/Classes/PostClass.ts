@@ -12,8 +12,6 @@ export class Post{
   tags : Array<string>;
   comments: Array<CommentClass>;
   authorID : number;
-  visableToAll: boolean = false;
-  visableTo: Array<number> = [];
   callerID: string;
 
 
