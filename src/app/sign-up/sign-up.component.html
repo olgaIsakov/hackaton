@@ -6,18 +6,24 @@
       </div>
   </div>
 
+  <div class="p-grid p-fluid">
+    <div class="p-col-12 p-md-4">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input type="text" pInputText placeholder="Password">
+        </div>
+    </div>
+
   <div class="p-col-12 p-md-4">
     <div class="p-inputgroup">
         <span class="p-inputgroup-addon">www</span>
-        <input type="text" pInputText placeholder="Website">
+        <input type="text" pInputText placeholder="Email">
     </div>
 </div>
 
-
-<div class="p-grid p-fluid">
-  <div class="p-col-12 p-md-4">
-      <div class="p-inputgroup">
-          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-          <input type="text" pInputText placeholder="Password">
-      </div>
-  </div>
+<div>
+<h6>
+  Psychologist?
+</h6>
+<p-toggleButton class = "yesno" onIcon="pi pi-check" offIcon="pi pi-times" [(ngModel)]="checked"></p-toggleButton>
+</div>
