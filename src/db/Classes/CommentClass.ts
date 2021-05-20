@@ -16,9 +16,9 @@ export class CommentClass{
   postAutherID!: number
 
 
-  constructor(CID=-1, body="",authorID=-1,replyingTo=-1, postAutherID=-1,  callerID =-1){
-    this.CID=CID
-    console.log(this.CID)
+  constructor(body="",authorID=-1,replyingTo=-1, postAutherID=-1,  callerID =-1){
+    this.CID=-1
+    //console.log(this.CID)
     this.body=body
     this.date=new Date()
     this.authorID =authorID
