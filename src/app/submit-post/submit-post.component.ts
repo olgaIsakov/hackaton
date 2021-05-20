@@ -14,6 +14,7 @@ import { post } from 'jquery';
 export class SubmitPostComponent implements OnInit {
   text="";
   isChecked =true;
+
   constructor() {
 
    }

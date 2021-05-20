@@ -1,9 +1,14 @@
-<p-card class="mainCard" [style]="{'width': '40rem','height':'8rem', 'margin-bottom': '2em','margin-left':'24%','border':'10px'}">
-    <ng-template pTemplate="header">
-        Header content here
-    </ng-template>
-    Body Content
-    <ng-template pTemplate="footer">
-        Footer content here
-    </ng-template>
-</p-card>
+<div *ngIf = "post">
+    
+    <p-card [style]="{'width': '70%', 'margin-bottom': '2em', 'margin':'0 auto'}"> 
+        <div> 
+            <!-- add if post is annonimous -->
+            <p>{{post.PID}} {{post.date_created}}</p>            
+        </div>   
+        {{post.body}}                  
+        <button pButton id = "repliesButton"  type="button" label="replies" class="p-button-outlined"></button> 
+              
+            
+    </p-card>
+    <div *ngIf = "post.comments"></div>
+</div>
