@@ -1,29 +1,31 @@
 import {CommentClass} from "./CommentClass"
 import {getComments, updatePost, createPost, getID} from "src/db/Classes/Api"
+import { post } from "jquery";
 
-var last_ind=0;
 
 export class Post{
   body: string;
   PID!: number;
   date_created: string;
   tags : Array<string>;
-  comments: Array<CommentClass>;
+  comments!: Array<CommentClass>;
   authorID : number;
   callerID!: number;
   visableToAll!: boolean;
 
  
-  getComments(){
-    //var comments = getComments(this.callerID, this.PID);
-   // return comments;
-   return []
+  async getComments():Promise<Array<CommentClass>>{
+    let comments
+    console.log("method getComments, callerID is "+this.callerID)
+    console.log("get comments for PID  "+this.PID)
+    comments = await getComments(this.callerID, this.PID);
+    return comments;
   }
 
   updatePost(){
     updatePost(this);
   }
-  async uploadPost(){
+  async upload(){
     this.PID= await getID("PID")
     createPost(this);
   }
@@ -39,17 +41,13 @@ export class Post{
     return false
   }
 
-  constructor(body="", callerID=-1,tags=[], authorID=-1){
-    this.body = body;
+  constructor(body="",callerID=-1,tags=[], authorID=-1){
+    this.body = body
     this.date_created="20/5/21"; //CHANGE THIS TO DATE.NOW
-
-    this.tags = tags;
-    this.comments = this.getComments();
-    this.authorID = authorID;
-    this.visableToAll= true;
+    this.tags = tags
+    //this.comments = this.getComments()
+    this.authorID = authorID
+    this.visableToAll= true
   }
-
-
-
 
 }
