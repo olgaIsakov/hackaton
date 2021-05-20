@@ -6,9 +6,11 @@ export default class Api{
     // if i delete it get stuck..
 }
 
-function parserPost(json:JSON){
-
-
+function parserPost(json:any){
+    console.log("the json is: "+json)
+    console.log("the jason.body: "+json.body)
+    
+    return new Post(json.body, json.authorID, json.PID)
 }
 
 
@@ -18,7 +20,7 @@ export async function getPostByPID(PID: number){
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/dynamodb-readonly'+'?index='+PID.toString();
     console.log("getPostByPID:\n"+getPostURL)
 
-    await $.getJSON(getPostURL , function( json) {
+    await $.getJSON(getPostURL , function(json) {
         rt=parserPost(json);
         })  
     return rt;
