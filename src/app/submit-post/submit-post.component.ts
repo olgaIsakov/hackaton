@@ -24,14 +24,14 @@ export class SubmitPostComponent implements OnInit {
       var new_user = new User("HOLY","FUCK","its@works.com",false)
       var new_post = new Post('8TH post', -1,[],4)
       var new_comment = new CommentClass("I LOVE IT", 25,5,10)
-
+      new_comment.upload()
       if(false){
         createPost(new_post)
         signup(new_user.username,new_user.password)
         console.log("return value in submit func is: "+await login(new_user.username,new_user.password))
      }
    
-     //getAllPosts(-1)
+    //getAllPosts(-1)
 
     this.text="this works!!"
   }
