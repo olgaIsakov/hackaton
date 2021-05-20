@@ -25,10 +25,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { ChildboxComponent } from './childbox/childbox.component';
 import { CardComponent } from './card/card.component';
 import {ToggleButtonModule} from 'primeng/togglebutton';
-import { SignOutComponent } from './sign-out/sign-out.component';
-
-
-
+import {DropdownModule} from 'primeng/dropdown';
 import {SidebarModule} from 'primeng/sidebar';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
@@ -46,7 +43,7 @@ import {BadgeModule} from 'primeng/badge';
     ChildboxComponent,
     CardComponent,
     HomeComponent,
-    SignOutComponent
+
   ],
   imports: [
     BrowserModule,
@@ -67,7 +64,8 @@ import {BadgeModule} from 'primeng/badge';
     SidebarModule,
     AvatarModule,
     AvatarGroupModule,
-    BadgeModule
+    BadgeModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent],
