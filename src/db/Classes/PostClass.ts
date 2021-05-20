@@ -1,30 +1,31 @@
-import {CommentClass} from "./CommentClass"
-import {getComments, updatePost, createPost, getID} from "src/db/Classes/Api"
+import {CommentClass} from './CommentClass';
+import {getComments, updatePost, createPost, getID} from 'src/db/Classes/Api';
 
-var last_ind=0;
+var last_ind = 0;
 
-export class Post{
+export class Post {
   body: string;
   PID!: number;
   date_created: string;
-  tags : Array<string>;
+  tags: Array<string>;
   comments: Array<CommentClass>;
-  authorID : number;
+  authorID: number;
   callerID!: number;
   visableToAll!: boolean;
 
 
   getComments(){
     //var comments = getComments(this.callerID, this.PID);
-   // return comments;
-   return []
+    // return comments;
+    return [];
   }
 
-  updatePost(){
+  updatePost() {
     updatePost(this);
   }
-  async uploadPost(){
-    this.PID= await getID("PID")
+
+  async uploadPost() {
+    this.PID = await getID('PID');
     createPost(this);
   }
   async delete(){
@@ -41,15 +42,13 @@ export class Post{
 
   constructor(body="", callerID=-1,tags:Array<string>=[] , authorID=-1){
     this.body = body;
-    this.date_created="20/5/21"; //CHANGE THIS TO DATE.NOW
+    this.date_created = '20/5/21'; //CHANGE THIS TO DATE.NOW
 
     this.tags = tags;
     this.comments = this.getComments();
     this.authorID = authorID;
-    this.visableToAll= true;
+    this.visableToAll = true;
   }
-
-
 
 
 }

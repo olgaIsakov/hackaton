@@ -30,6 +30,8 @@ import {SidebarModule} from 'primeng/sidebar';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {BadgeModule} from 'primeng/badge';
+// @ts-ignore
+import { CommentComponent } from './comment/comment.component';
 import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
 import { TagModule } from 'primeng/tag';
 
@@ -46,7 +48,7 @@ import { TagModule } from 'primeng/tag';
     ChildboxComponent,
     CardComponent,
     HomeComponent,
-
+    CommentComponent
   ],
   imports: [
     BrowserModule,

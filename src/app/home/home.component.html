@@ -1,10 +1,5 @@
-<div><br>
-  <p-triStateCheckbox class = 'sortButton'[(ngModel)]="value" label="Sort By Date" checkboxTrueIcon='pi pi-sort-down
-' checkboxFalseIcon='pi pi-sort-up' (onChange)=sortByDates()></p-triStateCheckbox>
-  <br></div>
-<ul class = "home">
-    <li *ngFor="let _post of posts;index as i">
-        <app-card [post] = "posts[i]"></app-card>
-    </li>
-</ul>
-
+<div class = "home">
+    <div *ngFor="let _post of posts">
+        <app-card [post] = _post></app-card>
+    </div>
+</div>
