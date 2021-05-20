@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ApplicationRef, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CardComponent } from './../card/card.component';
 import {  Post } from "src/db/Classes/PostClass";
 import {getAllPosts} from "src/db/Classes/Api"
@@ -21,15 +21,13 @@ export class HomeComponent implements OnInit {
       case 0:
         return;
       case 1:
-        console.log(this.posts[0].body[0]);
         this.posts = this.sortNewFirst();
-        console.log(this.posts[0].body[0]);
         break;
       case 2:
         this.posts = this.sortOldFirst();
         break;
-
     }
+
 
   }
 
@@ -49,6 +47,8 @@ export class HomeComponent implements OnInit {
 
   sortNewFirst(){
     return this.posts.sort((a, b) => new Date(b.date_created).getTime() - new Date(a.date_created).getTime());
+
+
   }
 
   sortOldFirst(){
