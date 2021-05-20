@@ -5,11 +5,9 @@
             <!-- add if post is annonimous -->
             <p>{{post.PID}} {{post.date_created}}</p>            
         </div>   
-        {{post.body}}
-        
-        <div id = "replyButton" >            
-            <button pButton  type="button" label="reply" class="p-button-outlined"></button> 
-        </div>          
+        {{post.body}}                  
+        <button pButton id = "repliesButton"  type="button" label="replies" class="p-button-outlined"></button> 
+              
             
     </p-card>
     <div *ngIf = "post.comments"></div>
