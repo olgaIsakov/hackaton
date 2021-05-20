@@ -8,7 +8,10 @@ import { CardComponent } from './../card/card.component';
 })
 export class HomeComponent implements OnInit {
 
+  // display: boolean = false;
+
   constructor() { }
+
 
   ngOnInit(): void {
   }
