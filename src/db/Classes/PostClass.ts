@@ -9,7 +9,7 @@ export class Post{
   date_created: string;
   tags : Array<string>;
   comments: Array<CommentClass>;
-  authorID : string;
+  authorID : number;
   callerID!: number;
   visableToAll!: boolean;
 
@@ -39,7 +39,7 @@ export class Post{
     return false
   }
 
-  constructor(body="", callerID=-1,tags=[], authorID="-1"){
+  constructor(body="", callerID=-1,tags=[], authorID=-1){
     this.body = body;
     this.date_created="20/5/21"; //CHANGE THIS TO DATE.NOW
 
