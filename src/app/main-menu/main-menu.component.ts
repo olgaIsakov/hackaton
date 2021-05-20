@@ -25,7 +25,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   signOut(){
-    //todo: keep writing
+    //todo: clear cookies
   }
 
 
