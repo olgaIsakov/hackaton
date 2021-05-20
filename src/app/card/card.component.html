@@ -26,11 +26,12 @@
           <img src="" alt="...">
         </div>
         <div class="flex-grow-1 d-flex" >
-          <textarea class="form-control textarea shadow-none"  placeholder="Add Comment"></textarea>
+          <textarea class="form-control textarea shadow-none" placeholder="Add Comment" [(ngModel)]="commentText"></textarea>
+
         </div>
       </div>
       <div align="right">
-        <button type="button" class="btn btn-light shadow-none" >Add reply</button>
+        <button type="button" class="btn btn-light shadow-none" (click)="addComment()">Add reply</button>
       </div>
       <div *ngIf="post.comments">
         <div *ngFor="let comment of post.comments">
