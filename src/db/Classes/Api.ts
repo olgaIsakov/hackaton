@@ -25,6 +25,7 @@ export async function getPostByPID(PID: number){
     await $.getJSON(getPostURL , function(json) {
         rt=parserPost(json);
         })
+    //console.log(rt.PID)
     return rt;
   }
 // before tests
