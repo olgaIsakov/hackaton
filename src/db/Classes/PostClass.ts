@@ -3,7 +3,7 @@ import {getComments, updatePost, createPost, getID} from "src/db/Classes/Api"
 import { post } from "jquery";
 
 
-export class Post{
+export class Post {
   body: string;
   PID!: number;
   date_created: string;
@@ -22,23 +22,26 @@ export class Post{
     return comments;
   }
 
-  updatePost(){
+  updatePost() {
     updatePost(this);
   }
   async upload(){
     this.PID= await getID("PID")
     createPost(this);
   }
-  async delete(){
-    console.log("in the func delete")
-    let rt="initial rt";
-    let getPostURL = 'https://5f52owjwyl.execute-api.eu-central-1.amazonaws.com/default/delete'+'?PDI='+this.PID
-    await $.getJSON(getPostURL , function( json) {
-        rt=json.rt;
-        })   
-    console.log("delete address:\n"+getPostURL)
-    if(rt=="1") return true
-    return false
+
+  async delete() {
+    console.log('in the func delete');
+    let rt = 'initial rt';
+    let getPostURL = 'https://5f52owjwyl.execute-api.eu-central-1.amazonaws.com/default/delete' + '?PDI=' + this.PID;
+    await $.getJSON(getPostURL, function(json) {
+      rt = json.rt;
+    });
+    console.log('delete address:\n' + getPostURL);
+    if (rt === '1') {
+      return true;
+    }
+    return false;
   }
 
   constructor(body="",callerID=-1,tags=[], authorID=-1){

@@ -1,14 +1,47 @@
-<div *ngIf = "post">
+<div *ngIf="post" id="post-box" class="container border rounded shadow" style="align-content:center; width:70%; margin-top: 20px">
+  <div>
+    <div class="post-box-title d-flex align-items-center" style="width:50%">
+      <div class="flex-shrink-0">
+        <p
+          style="display:inline-block;font-size:1em;width:5em;height:5em;line-height:2.5em;text-align:center;border-radius:50%;background:plum;vertical-align:middle;margin-right:1em;margin-bottom:2em;color:white;">P
+        </p>
+      </div>
+      <div class="flex-grow-1 ms-3">
+        <p style="color:lightgray">
+          This is some content from a media component. You can replace this with any content and adjust it as needed.
+        </p>
+      </div>
+    </div>
 
-    <p-card [style]="{'width': '70%', 'margin-bottom': '2em', 'margin':'0 auto'}">
-        <div>
-            <!-- add if post is annonimous -->
-            <p>{{post.PID}} {{post.date_created}}</p>
+    <div class="post-box-body">
+      <div class="container">
+        <p style="font-size:20px">{{post.body}}</p>
+      </div>
+    </div>
+
+    <div class="post-box-actions" align="right">
+      <button type="button" class="btn btn-light shadow-none" data-bs-toggle="collapse" attr.data-bs-target="{{'#collapseExample'+post.PID.toString()}}" aria-expanded="false" attr.aria-controls="{{'collapseExample'+post.PID.toString()}}">Comments</button>
+    </div>
+    <div class="collapse" id="{{'collapseExample'+post.PID.toString()}}" style="margin-bottom: 13px">
+      <div class="post-box-title d-flex align-items-center" style="align-content: flex-end">
+        <div class="flex-shrink-0">
+          <p
+            style="display:inline-block;font-size:1em;width:5em;height:5em;line-height:2.5em;text-align:center;border-radius:50%;background:plum;vertical-align:middle;margin-right:1em;margin-bottom:2em;color:white;">C
+          </p>
         </div>
-        {{post.body}}
-        <button pButton id = "repliesButton"  type="button" label="replies" class="p-button-outlined"></button>
+        <div class="flex-grow-1 d-flex" >
+          <textarea class="form-control textarea shadow-none" placeholder="Add Comment" [(ngModel)]="commentText"></textarea>
 
-
-    </p-card>
-    <div *ngIf = "post.comments"></div>
+        </div>
+      </div>
+      <div align="right">
+        <button type="button" class="btn btn-light shadow-none" (click)="addComment()">Add reply</button>
+      </div>
+      <div *ngIf="post.comments">
+        <div *ngFor="let comment of post.comments">
+          <app-comment [comment] = comment></app-comment>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
