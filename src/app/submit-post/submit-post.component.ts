@@ -9,6 +9,7 @@ import {InputSwitchModule} from 'primeng/inputswitch';
 export class SubmitPostComponent implements OnInit {
   text="";
   isChecked =true;
+
   constructor() {
 
    }

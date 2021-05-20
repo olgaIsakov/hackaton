@@ -7,6 +7,10 @@ export default class Api{
     
     // if i delete it get stuck..
 }
+
+export function getUsernameByID(PID:string):string{ 
+    return ""
+}
 export function getPostByPID(PID: string){
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/dynamodb-readonly'+'?index='+PID;
     return $.getJSON(getPostURL, (res:any )=> {ConvertJsonToSinglePostBody(res);}) ;
