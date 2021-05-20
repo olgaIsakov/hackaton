@@ -1,11 +1,16 @@
 <div *ngIf = "post">
-<p-card class="mainCard" [style]="{'width': '40rem','height':'8rem', 'margin-bottom': '2em','margin-left':'24%','border':'10px'}">
-    <ng-template pTemplate="header">
-        Header content here
-    </ng-template>
-    {{post.body}}
-    <ng-template pTemplate="footer">
-        Footer content here
-    </ng-template>
-</p-card>
+    
+    <p-card [style]="{'width': '70%', 'margin-bottom': '2em', 'margin':'0 auto'}"> 
+        <div *ngIf = "post.PID!='annon'"> 
+            <!-- add if post is annonimous -->
+            <p>{{post.PID}} {{post.date_created}}</p>            
+        </div>   
+        {{post.body}}
+        
+        <div id = "replyButton" >            
+            <button pButton  type="button" label="reply" class="p-button-outlined"></button> 
+        </div>          
+            
+    </p-card>
+    <div *ngIf = "post.comments"></div>
 </div>

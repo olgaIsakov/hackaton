@@ -6,7 +6,7 @@ var last_ind=0;
 export class Post{
   body: string;
   PID: string;
-  date_created!: Date;
+  date_created: string;
   tags : Array<string>;
   comments: Array<CommentClass>;
   authorID : string;
@@ -34,7 +34,8 @@ export class Post{
   constructor(callerID="-1", body="", tags=[], authorID="-1"){
     this.body = body;
     this.PID = getPID();
-    //this.date_created=Date.now();
+    this.date_created="20/5/21"; //CHANGE THIS TO DATE.NOW
+    
     this.tags = tags;
     this.comments = this.getComments();
     this.authorID = authorID;
