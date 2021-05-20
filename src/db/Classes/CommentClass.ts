@@ -3,7 +3,7 @@ import {createComment, updateComment, getID} from "src/db/Classes/Api"
 
 var last_ind=0;
 export class CommentClass{
- 
+
   CID!: number
   body!: string
   authorID: number
@@ -32,11 +32,12 @@ export class CommentClass{
 
 
 
-  async upload(): Promise<Boolean>{
+  async upload(): Promise<CommentClass>{
     this.CID= await getID("CID")
-    return createComment(this);
+    createComment(this);
+    return this;
   }
-  
+
   async update(): Promise<Boolean>{
     return updateComment(this);
   }
@@ -46,5 +47,5 @@ export class CommentClass{
     let res = $.getJSON(getPostURL);
     return res;
   }
- 
+
 }

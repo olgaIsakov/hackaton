@@ -21,13 +21,15 @@ export class HomeComponent implements OnInit {
     this.posts[0].PID = 0;
     this.posts[1].PID = 1;
     this.posts[2].PID = 2;
-
-    this.comments = [new CommentClass(0, this.lorem_impsum.slice(0, 50)), new CommentClass(1, this.lorem_impsum.slice(0, 100))];
+    this.curPostPID = 3;
+    // @ts-ignore
+    this.comments = [new CommentClass(this.lorem_impsum.slice(0, 50),0,0), new CommentClass(this.lorem_impsum.slice(0, 100))];
     (this.posts)[0].comments = this.comments;
     this.submitPostText = '';
   }
   lorem_impsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu eros a lorem efficitur rhoncus at finibus erat. Quisque consectetur nisi sed mauris elementum condimentum. Praesent sodales facilisis facilisis. Donec a urna tempor, efficitur mi porta, accumsan augue. Praesent volutpat odio metus, a condimentum mi porttitor eu. Nunc facilisis pharetra purus non scelerisque. Vivamus mattis, tellus vel pellentesque efficitur, nibh erat bibendum ipsum, in tincidunt augue lorem sit amet urna. Etiam quis ex elit. Mauris lacus sem, luctus id iaculis in, imperdiet non nunc. Suspendisse eu egestas nibh. Duis tellus lacus, lobortis at erat at, dignissim sollicitudin erat.';
   submitPostText: string;
+  curPostPID: number;
   posts = Array<Post>();
   cards = Array<CardComponent>();
   comments: CommentClass[] | undefined;
