@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ToggleButtonModule} from 'primeng/togglebutton';
 
 @Component({
   selector: 'app-sign-up',
@@ -7,7 +6,6 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
   checked: boolean = false;
 
   constructor() { }
