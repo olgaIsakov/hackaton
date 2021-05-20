@@ -13,7 +13,7 @@ export class Post{
   callerID!: number;
   visableToAll!: boolean;
 
- 
+
   getComments(){
     //var comments = getComments(this.callerID, this.PID);
    // return comments;
@@ -33,13 +33,13 @@ export class Post{
     let getPostURL = 'https://5f52owjwyl.execute-api.eu-central-1.amazonaws.com/default/delete'+'?PDI='+this.PID
     await $.getJSON(getPostURL , function( json) {
         rt=json.rt;
-        })   
+        })
     console.log("delete address:\n"+getPostURL)
     if(rt=="1") return true
     return false
   }
 
-  constructor(body="", callerID=-1,tags=[], authorID=-1){
+  constructor(body="", callerID=-1,tags:Array<string>=[] , authorID=-1){
     this.body = body;
     this.date_created="20/5/21"; //CHANGE THIS TO DATE.NOW
 

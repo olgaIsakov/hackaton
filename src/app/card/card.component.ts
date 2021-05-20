@@ -8,12 +8,17 @@ import {  Post } from "src/db/Classes/PostClass";
 })
 export class CardComponent implements OnInit {
   @Input() post?:Post
+  val="";
 
   constructor(){
   }
-  
+
 
   ngOnInit(): void {
+    for (let tag of this.post!.tags){
+      console.log(tag)
+    }
   }
+
 
 }

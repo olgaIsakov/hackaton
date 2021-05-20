@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   cards = Array<CardComponent>();
   ngOnInit(): void {
     //this.posts = getAllPosts();
-    this.posts = [new Post( this.lorem_impsum), new Post( this.lorem_impsum.slice(20,50)), new Post( this.lorem_impsum.slice(1,50))];
+    this.posts = [new Post( this.lorem_impsum,1,['Death','Suicide','fr','Rape']), new Post( this.lorem_impsum.slice(20,50)), new Post( this.lorem_impsum.slice(1,50))];
  this.posts[0].date_created = "11/11/11";
   }
 
