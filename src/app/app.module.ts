@@ -32,6 +32,7 @@ import { SignOutComponent } from './sign-out/sign-out.component';
 import {SidebarModule} from 'primeng/sidebar';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
+import {BadgeModule} from 'primeng/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +66,8 @@ import {AvatarGroupModule} from 'primeng/avatargroup';
     CardModule,
     SidebarModule,
     AvatarModule,
-    AvatarGroupModule
+    AvatarGroupModule,
+    BadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
