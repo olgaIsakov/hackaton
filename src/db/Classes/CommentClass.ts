@@ -1,29 +1,23 @@
 import {getComments} from "src/db/Classes/Api"
-import {createComment, updateComment} from "src/db/Classes/Api"
+import {createComment, updateComment, getID} from "src/db/Classes/Api"
 
 var last_ind=0;
 export class CommentClass{
  
-  CID!: string
+  CID!: number
   body!: string
-  authorID: string
+  authorID: number
   date!: Date
   subComment!:Boolean
   replyingTo!: Number
   visableToAll!: boolean
   visableTo!: Array<number>
-  callerID: string
-  postAutherID!: string
+  callerID: number
+  postAutherID!: number
 
 
-  constructor(CID="-1", body="",authorID="-1",replyingTo="-1", callerID ="-1", postAutherID="-1"){
-    if(CID == "-1"){
-      this.CID= getCID()
-    }
-    else{
-      this.CID=CID
-    }
-    console.log("cid isnt -1")
+  constructor(CID=-1, body="",authorID=-1,replyingTo=-1, postAutherID=-1,  callerID =-1){
+    this.CID=CID
     console.log(this.CID)
     this.body=body
     this.date=new Date()
@@ -35,26 +29,21 @@ export class CommentClass{
     this.visableTo=[]
   }
 
-  upload(){
+
+
+  async upload(): Promise<Boolean>{
+    this.CID= await getID("CID")
     return createComment(this);
   }
   
-  update(){
+  async update(): Promise<Boolean>{
     return updateComment(this);
   }
 
-  delete(){
+  async delete(): Promise<Boolean>{
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/delete_comment?'+this.CID;
     let res = $.getJSON(getPostURL);
     return res;
   }
  
- 
-}
-function getCID(): string {
-  var rt = last_ind.toString();
-  last_ind++;
-  console.log("the rt is")
-  console.log(rt)
-  return rt;
 }
