@@ -5,12 +5,12 @@ var last_ind=0;
 
 export class Post{
   body: string;
-  PID: string;
+  PID!: number;
   date_created: string;
   tags : Array<string>;
   comments: Array<CommentClass>;
   authorID : string;
-  callerID: string;
+  callerID: number;
   visableToAll!: boolean;
 
 
@@ -31,9 +31,8 @@ export class Post{
     return res;
   }
 
-  constructor(callerID="-1", body="", tags=[], authorID="-1"){
+  constructor(body="", callerID=-1,tags=[], authorID="-1"){
     this.body = body;
-    this.PID = getPID();
     this.date_created="20/5/21"; //CHANGE THIS TO DATE.NOW
 
     this.tags = tags;

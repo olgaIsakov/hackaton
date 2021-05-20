@@ -93,9 +93,9 @@ export function ConvertJsonToComments(res: {[index: string]:any}) : CommentClass
 }
 
 // need to prase json
-export function getComments(callerID:string, PID: string): CommentClass[]{
+export function getComments(callerID:number, PID: number): CommentClass[]{
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/getComments?'
-                    +callerID +"&"+PID;
+                    +callerID +"&"+PID.toString();
     let res = $.getJSON(getPostURL);
     //let rt = (res : {[index: string]:any}) => {return ConvertJsonToComments(res);};
     return ConvertJsonToComments(res);
@@ -104,7 +104,7 @@ export function getComments(callerID:string, PID: string): CommentClass[]{
 
 // works, add date
 export function  createPost (post: Post){
-    if(post.PID=="-1"){return;}
+    if(post.PID==-1){return;}
     let getPostURL = 'https://h94t6569ug.execute-api.eu-central-1.amazonaws.com/default/create_post?'+post.PID;
     if(post.body!="")
         getPostURL+=("&body="+post.body.replace(" ","_"))
