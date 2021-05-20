@@ -29,6 +29,7 @@ import { SignOutComponent } from './sign-out/sign-out.component';
 
 
 
+import {SidebarModule} from 'primeng/sidebar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,8 @@ import { SignOutComponent } from './sign-out/sign-out.component';
     FontAwesomeModule,
     InputSwitchModule,
     ToggleButtonModule,
-    CardModule
+    CardModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

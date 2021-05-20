@@ -12,15 +12,19 @@ export class MainMenuComponent implements OnInit {
   items: MenuItem[]=[];
   activeItem!: MenuItem;
 
-
+  display: boolean = false;
   constructor(private router: Router) { }
-  // searchBarHTML = '<span class="p-input-icon-right"><i class="pi pi-search"></i><input type="text" pInputText [(ngModel)]="searchValue" /></span>'
-  searchValue = '';
+
+  openBars(){
+    this.display = !this.display;
+  }
+
 
   ngOnInit() {
 
     // Initialize menu items:
     this.items =[
+      {icon:'pi pi-bars', command: ()=>{this.display = true}},
         {label: 'Home' ,id: 'home', icon: 'pi pi-fw pi-home', routerLink :['/Home']},
         {label: 'Sign In',id: 'signIn', icon: 'pi pi-sign-in', routerLink :['/SignIn']},
         {label: 'Sign Up', id: 'signUp',icon: 'pi pi-user-plus', routerLink :['/SignUp']},

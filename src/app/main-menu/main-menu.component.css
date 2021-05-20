@@ -3,6 +3,9 @@
   background-color:#e8f8ff !important;
 }
 
+::ng-deep .p-sidebar-mask.p-component-overlay {
+  background: transparent;
+}
 
 
 /* .menu .ui-menu-item{
