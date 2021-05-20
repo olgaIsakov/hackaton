@@ -33,6 +33,7 @@ import {SidebarModule} from 'primeng/sidebar';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {BadgeModule} from 'primeng/badge';
+import { CommentComponent } from './comment/comment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import {BadgeModule} from 'primeng/badge';
     ChildboxComponent,
     CardComponent,
     HomeComponent,
-    SignOutComponent
+    SignOutComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

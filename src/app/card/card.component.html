@@ -1,4 +1,4 @@
-<div *ngIf="post" id="{{post.PID}}-box" class="container border rounded shadow" style="align-content:center; width:70%">
+<div *ngIf="post" id="post-box" class="container border rounded shadow" style="align-content:center; width:70%; margin-top: 20px">
   <div>
     <div class="post-box-title d-flex align-items-center" style="width:50%">
       <div class="flex-shrink-0">
@@ -21,11 +21,11 @@
       <button type="button" class="btn btn-light shadow-none" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Comments</button>
     </div>
     <div class="collapse" id="collapseExample" style="margin-bottom: 13px">
-      <div class="post-box-title d-flex align-items-center">
+      <div class="post-box-title d-flex align-items-center" style="align-content: flex-end">
         <div class="flex-shrink-0">
           <img src="" alt="...">
         </div>
-        <div class="flex-grow-1 d-flex">
+        <div class="flex-grow-1 d-flex" >
           <textarea class="form-control textarea shadow-none"  placeholder="Add Comment"></textarea>
         </div>
       </div>
@@ -33,7 +33,9 @@
         <button type="button" class="btn btn-light shadow-none" >Add reply</button>
       </div>
       <div *ngIf="post.comments">
-
+        <div *ngFor="let comment of post.comments">
+          <app-comment [comment] = comment></app-comment>
+        </div>
       </div>
     </div>
   </div>
