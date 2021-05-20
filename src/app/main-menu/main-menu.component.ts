@@ -18,6 +18,10 @@ export class MainMenuComponent implements OnInit {
     this.display = !this.display;
   }
 
+  sendEmail(){
+    alert("hi");
+  }
+
 
   ngOnInit() {
 
