@@ -5,6 +5,9 @@
 
 }
 
+::ng-deep .p-sidebar-mask.p-component-overlay {
+  background: transparent;
+}
 
 
 /* .menu .ui-menu-item{

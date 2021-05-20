@@ -25,6 +25,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { ChildboxComponent } from './childbox/childbox.component';
 import { CardComponent } from './card/card.component';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import {SidebarModule} from 'primeng/sidebar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
     FontAwesomeModule,
     InputSwitchModule,
     ToggleButtonModule,
-    CardModule
+    CardModule,
+    SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

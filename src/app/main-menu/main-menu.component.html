@@ -1,2 +1,8 @@
 <!-- <p-tabMenu class="menu" (click) = "redirect($event)" [model]="items" styleClass="custom"></p-tabMenu> -->
 <p-tabMenu class="ui-tabmenu"  [model]="items" ></p-tabMenu>
+<p-sidebar  [(visible)]="display" [baseZIndex]="100000" [style]="{'z-index':'100000'}">
+  Content
+</p-sidebar>
+
+<!-- <p-button type="text" (click)="display = true" icon="pi pi-bars"></p-button> -->
+
