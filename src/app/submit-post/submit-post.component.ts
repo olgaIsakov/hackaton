@@ -7,12 +7,12 @@ import {InputSwitchModule} from 'primeng/inputswitch';
   styleUrls: ['submit-post.component.css']
 })
 export class SubmitPostComponent implements OnInit {
-<<<<<<< Updated upstream
+  text="";
+<<<<<<< HEAD
 
 =======
->>>>>>> Stashed changes
-  text="";
   isChecked =true;
+>>>>>>> Olga
   constructor() {
 
    }
