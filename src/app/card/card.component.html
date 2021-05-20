@@ -18,11 +18,22 @@
     </div>
 
     <div class="post-box-actions" align="right">
-      <button type="button" class="btn btn-light" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Comments</button>
+      <button type="button" class="btn btn-light shadow-none" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Comments</button>
     </div>
     <div class="collapse" id="collapseExample" style="margin-bottom: 13px">
-      <div class="card card-body">
-        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+      <div class="post-box-title d-flex align-items-center">
+        <div class="flex-shrink-0">
+          <img src="" alt="...">
+        </div>
+        <div class="flex-grow-1 d-flex">
+          <textarea class="form-control textarea shadow-none"  placeholder="Add Comment"></textarea>
+        </div>
+      </div>
+      <div align="right">
+        <button type="button" class="btn btn-light shadow-none" >Add reply</button>
+      </div>
+      <div *ngIf="post.comments">
+
       </div>
     </div>
   </div>
