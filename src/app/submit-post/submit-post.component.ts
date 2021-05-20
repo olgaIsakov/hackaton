@@ -8,11 +8,7 @@ import {InputSwitchModule} from 'primeng/inputswitch';
 })
 export class SubmitPostComponent implements OnInit {
   text="";
-<<<<<<< HEAD
-
-=======
   isChecked =true;
->>>>>>> Olga
   constructor() {
 
    }
