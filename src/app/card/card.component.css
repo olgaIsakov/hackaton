@@ -1,6 +1,10 @@
 #replyButton{
     position: relative;
     float: right;
-    
+    padding-top: 17px;
 
+}
+#repButton{
+  width: 85px;
+  height: 35px;
 }
