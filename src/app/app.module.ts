@@ -31,6 +31,7 @@ import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {BadgeModule} from 'primeng/badge';
 import { CommentComponent } from './comment/comment.component';
+import {PanelModule} from 'primeng/panel';
 import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
     AvatarGroupModule,
     BadgeModule,
     DropdownModule,
-    TriStateCheckboxModule
+    TriStateCheckboxModule,
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent],
