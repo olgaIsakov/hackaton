@@ -46,7 +46,6 @@ export class MainMenuComponent implements OnInit {
       }
       index++;
     }
-    alert(index-1);
-    this.activeItem = this.items[index-1];
+    this.activeItem = this.items[index];
  }
 }
