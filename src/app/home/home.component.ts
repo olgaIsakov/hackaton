@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   cards = Array<CardComponent>();
   ngOnInit(): void {
     //this.posts = getAllPosts();
-    this.posts = [new Post("a", this.lorem_impsum), new Post("b", this.lorem_impsum.slice(20,50)), new Post("c", this.lorem_impsum.slice(1,50))];
+    this.posts = [new Post(this.lorem_impsum)];
   }
 
 

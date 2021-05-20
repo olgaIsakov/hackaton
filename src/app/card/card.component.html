@@ -1,7 +1,7 @@
 <div *ngIf = "post">
 
     <p-card [style]="{'width': '70%', 'margin-bottom': '2em', 'margin':'0 auto'}">
-        <div *ngIf = "post.PID!='annon'">
+        <div>
             <!-- add if post is annonimous -->
             <p>{{post.PID}} {{post.date_created}}</p>
         </div>
