@@ -1,6 +1,6 @@
 <!-- <p-tabMenu class="menu" (click) = "redirect($event)" [model]="items" styleClass="custom"></p-tabMenu> -->
 <p-tabMenu class="ui-tabmenu"  [model]="items" ></p-tabMenu>
-<p-sidebar  [(visible)]="display"  [style]="{'z-index':'10000'}">
+<p-sidebar  [(visible)]="display" [modal]='false' [style]="{'z-index':'10000', 'overflow':'scroll'}">
   <!-- <p-avatar image="olga.JPG" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar> -->
   <h3>Psychologists available now</h3>
   <br>
@@ -10,9 +10,10 @@
         <p-avatar image="../../assets/omri.JPG" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
       </td>
       <td>
-        <span class ="m-3" id="shrinkInfo"> Omri Tamam - B.A. in Psychology </span>
-        <button icon="pi pi-send"  pBadge style="font-size: 1rem" severity="danger" (onClick) = "sendEmail()"></button>
-
+        <div class ="m-2">
+        <span id="shrinkInfo"> Omri Tamam - M.A. in Psychology </span>
+        <i class="pi pi-envelope p-text-secondary" (click)='sendEmail("omri.tamam@mail.huji.ac.il")' pBadge style="font-size: 1rem" [style]="{'z-index':'20000'}"></i>
+      </div>
       </td>
     </tr>
 
@@ -21,7 +22,10 @@
         <p-avatar image="../../assets/nadav.JPG" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
       </td>
       <td>
-        <span class ="m-3" id="shrinkInfo">Nadav Porat - B.A. in Psychology </span>
+        <div class ="m-3">
+        <span id="shrinkInfo">Nadav Porat - B.A in Psychology </span>
+        <i class="pi pi-envelope" (click)='sendEmail("nadav.porat1@mail.huji.ac.il")' pBadge style="font-size: 1rem" [style]="{'z-index':'20000'}"></i>
+      </div>
       </td>
     </tr>
 
@@ -30,7 +34,10 @@
         <p-avatar image="../../assets/olgaa.JPG" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
       </td>
       <td>
-        <span class ="m-3" id="shrinkInfo">Olga Isakov - B.A. in Psychology </span>
+        <div class ="m-3">
+        <span id="shrinkInfo">Olga Isakov - B.A. in Psychology </span>
+        <i class="pi pi-envelope p-text-secondary" (click)='sendEmail("olga.isakov@mail.huji.ac.il")' pBadge style="font-size: 1rem" [style]="{'z-index':'20000'}"></i>
+      </div>
       </td>
     </tr>
 
@@ -39,7 +46,10 @@
         <p-avatar image="../../assets/yotam.JPG" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
       </td>
       <td>
-        <span class ="m-1" id="shrinkInfo">Yotam Feitelson - B.A. in Psychology </span>
+        <div class ="m-1">
+        <span id="shrinkInfo">Yotam Feitelson - PHD in Psychology </span>
+        <i class="pi pi-envelope p-text-secondary" (click)='sendEmail("y.feitelson@mail.huji.ac.il")' pBadge style="font-size: 1rem" [style]="{'z-index':'20000'}"></i>
+      </div>
       </td>
     </tr>
 
@@ -48,7 +58,10 @@
         <p-avatar image="../../assets/amoss.JPG" styleClass="p-mr-2" size="xlarge" shape="circle"></p-avatar>
       </td>
       <td>
-        <span class ="m-3" id="shrinkInfo">Amoss Dvir - B.A. in Psychology </span>
+        <div class ="m-3">
+        <span id="shrinkInfo">Amoss Dvir - B.A. in Psychology </span>
+        <i class="pi pi-envelope p-text-secondary" (click)='sendEmail("amoss.dvir@mail.huji.ac.il")' pBadge style="font-size: 1rem" [style]="{'z-index':'20000'}"></i>
+      </div>
       </td>
     </tr>
   </table>

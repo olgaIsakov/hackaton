@@ -19,8 +19,8 @@ export class MainMenuComponent implements OnInit {
     this.display = !this.display;
   }
 
-  sendEmail(){
-    alert("hi");
+  sendEmail(e:string){
+    window.open("mailto:"+ e)
   }
 
 
@@ -46,7 +46,6 @@ export class MainMenuComponent implements OnInit {
       }
       index++;
     }
-    alert(index-1);
-    this.activeItem = this.items[index-1];
+    this.activeItem = this.items[index];
  }
 }
