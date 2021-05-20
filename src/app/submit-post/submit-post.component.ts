@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {InputSwitchModule} from 'primeng/inputswitch';
+import {CommentClass} from "src/db/Classes/CommentClass"
+import {Post} from "src/db/Classes/PostClass"
+import {User} from "src/db/Classes/User"
+import {createComment, createPost, signup, login, getPostByPID} from "src/db/Classes/Api"
+import { post } from 'jquery';
 
 @Component({
   selector: 'app-submit-post',
