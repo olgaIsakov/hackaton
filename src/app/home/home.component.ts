@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   private comments: CommentClass[] | undefined;
   ngOnInit(): void {
     // this.posts = getAllPosts();
-    this.posts = [new Post(this.lorem_impsum), new Post( this.lorem_impsum.slice(20, 50)), new Post( this.lorem_impsum.slice(1, 50))];
+    this.posts = [new Post(this.lorem_impsum,1,["Suicide"]), new Post( this.lorem_impsum.slice(20, 50)), new Post( this.lorem_impsum.slice(1, 50),2,["Rape"])];
     this.posts[0].PID = 0;
     this.posts[1].PID = 1;
     this.posts[2].PID = 2;
