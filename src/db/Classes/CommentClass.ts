@@ -21,6 +21,7 @@ export class CommentClass{
     //console.log(this.CID)
     this.body=body
     this.date=new Date()
+    this.replyingTo=replyingTo
     this.authorID =authorID
     this.visableToAll=true
     this.callerID = callerID
