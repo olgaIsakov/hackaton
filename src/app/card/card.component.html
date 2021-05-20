@@ -6,10 +6,8 @@
             <p>{{post.PID}} {{post.date_created}}</p>
         </div>
         {{post.body}}
+        <button pButton id = "repliesButton"  type="button" label="replies" class="p-button-outlined"></button>
 
-        <div id = "replyButton" >
-            <button pButton id="repButton" type="button" label="reply" class="p-button-outlined"></button>
-        </div>
 
     </p-card>
     <div *ngIf = "post.comments"></div>

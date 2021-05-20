@@ -35,7 +35,7 @@ export class Post{
     this.body = body;
     this.PID = getPID();
     this.date_created="20/5/21"; //CHANGE THIS TO DATE.NOW
-    
+
     this.tags = tags;
     this.comments = this.getComments();
     this.authorID = authorID;
