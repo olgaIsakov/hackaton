@@ -19,3 +19,11 @@ max-width: 2rem;
 #button-cont{
 padding-bottom: 2rem;
 }
+
+.p-ripple .p-button .p-togglebutton .p-component .p-button-icon-only{
+  width:30rem
+}
+
+.psychoButton{
+text-align: center;
+}

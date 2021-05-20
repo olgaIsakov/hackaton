@@ -25,15 +25,11 @@ import { CommentsComponent } from './comments/comments.component';
 import { ChildboxComponent } from './childbox/childbox.component';
 import { CardComponent } from './card/card.component';
 import {ToggleButtonModule} from 'primeng/togglebutton';
-import { SignOutComponent } from './sign-out/sign-out.component';
-
-
-
+import {DropdownModule} from 'primeng/dropdown';
 import {SidebarModule} from 'primeng/sidebar';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {BadgeModule} from 'primeng/badge';
-import {DropdownModule} from 'primeng/dropdown';
 import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
 @NgModule({
   declarations: [
@@ -48,7 +44,7 @@ import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
     ChildboxComponent,
     CardComponent,
     HomeComponent,
-    SignOutComponent
+
   ],
   imports: [
     BrowserModule,
