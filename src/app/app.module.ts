@@ -25,6 +25,10 @@ import { CommentsComponent } from './comments/comments.component';
 import { ChildboxComponent } from './childbox/childbox.component';
 import { CardComponent } from './card/card.component';
 import {ToggleButtonModule} from 'primeng/togglebutton';
+import { SignOutComponent } from './sign-out/sign-out.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +41,8 @@ import {ToggleButtonModule} from 'primeng/togglebutton';
     CommentsComponent,
     ChildboxComponent,
     CardComponent,
-    HomeComponent
+    HomeComponent,
+    SignOutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,41 @@
-<div class="p-grid p-fluid">
-  <div class="p-col-12 p-md-4">
+<div class="form">
+  <p id="title">Sign In</p>
+  <div class="p-grid p-fluid">
+    <div class="p-col-12 p-md-4">
       <div class="p-inputgroup">
-          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-          <input type="text" pInputText placeholder="Username">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input
+          type="text"
+          pInputText
+          placeholder="Username"
+          [style]="{ 'width': '25rem' }"
+        />
       </div>
+    </div>
   </div>
 
   <div class="p-grid p-fluid">
     <div class="p-col-12 p-md-4">
-        <div class="p-inputgroup">
-            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-            <input type="text" pInputText placeholder="Password">
-        </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+        <input
+          type="password"
+          id="password"
+          pInputText
+          placeholder="Password"
+          [style]="{ width: '25rem' }"
+        />
+      </div>
     </div>
+    <div id="button-cont">
+    <p-button
+      id="submit"
+      label="Sign In"
+      icon="pi pi-check"
+      iconPos="left"
+      [style]="{ width: '8rem', 'margin-left': '33%', 'margin-right': '25%'}"
+    ></p-button>
+  </div>
+  </div>
+  <!-- <h5>{{password}}</h5> -->
+</div>
