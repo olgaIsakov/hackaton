@@ -29,7 +29,7 @@ export class SubmitPostComponent implements OnInit {
         signup(new_user.username,new_user.password)
         console.log("return value in submit func is: "+await login(new_user.username,new_user.password))
      }
-     console.log(getPostByPID(0))
+     console.log(getPostByPID(5))
     this.text="this works!!"
   }
 
