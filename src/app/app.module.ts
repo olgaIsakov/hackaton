@@ -26,6 +26,8 @@ import { ChildboxComponent } from './childbox/childbox.component';
 import { CardComponent } from './card/card.component';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {SidebarModule} from 'primeng/sidebar';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +58,9 @@ import {SidebarModule} from 'primeng/sidebar';
     InputSwitchModule,
     ToggleButtonModule,
     CardModule,
-    SidebarModule
+    SidebarModule,
+    AvatarModule,
+    AvatarGroupModule
   ],
   providers: [],
   bootstrap: [AppComponent],
