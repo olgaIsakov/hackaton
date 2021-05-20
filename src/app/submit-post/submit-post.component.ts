@@ -7,7 +7,10 @@ import {InputSwitchModule} from 'primeng/inputswitch';
   styleUrls: ['submit-post.component.css']
 })
 export class SubmitPostComponent implements OnInit {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   text="";
   isChecked =true;
   constructor() {
