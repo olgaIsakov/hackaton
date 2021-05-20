@@ -19,8 +19,8 @@ export class MainMenuComponent implements OnInit {
     this.display = !this.display;
   }
 
-  sendEmail(){
-    alert("hi");
+  sendEmail(e:string){
+    window.open("mailto:"+ e)
   }
 
 
