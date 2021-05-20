@@ -18,9 +18,9 @@
     </div>
 
     <div class="post-box-actions" align="right">
-      <button type="button" class="btn btn-light shadow-none" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Comments</button>
+      <button type="button" class="btn btn-light shadow-none" data-bs-toggle="collapse" attr.data-bs-target="{{'#collapseExample'+post.PID.toString()}}" aria-expanded="false" attr.aria-controls="{{'collapseExample'+post.PID.toString()}}">Comments</button>
     </div>
-    <div class="collapse" id="collapseExample" style="margin-bottom: 13px">
+    <div class="collapse" id="{{'collapseExample'+post.PID.toString()}}" style="margin-bottom: 13px">
       <div class="post-box-title d-flex align-items-center" style="align-content: flex-end">
         <div class="flex-shrink-0">
           <img src="" alt="...">
