@@ -3,7 +3,8 @@
     <div class="post-box-title d-flex align-items-center" style="width:50%">
       <div class="flex-shrink-0">
         <p
-          style="display:inline-block;font-size:1em;width:5em;height:5em;line-height:2.5em;text-align:center;border-radius:50%;background:plum;vertical-align:middle;margin-right:1em;margin-bottom:2em;color:white;">P
+          style="display:inline-block;font-size:1em;width:5em;height:5em;line-height:5em;text-align:center;border-radius:50%;background:plum;vertical-align:middle;margin-right:1em;margin-bottom:2em;color:white;">
+          <span style="font-size:4em; font-weight: bold">P</span>
         </p>
       </div>
       <div class="flex-grow-1 ms-3">
@@ -23,14 +24,15 @@
       <button type="button" class="btn btn-light shadow-none" data-bs-toggle="collapse" attr.data-bs-target="{{'#collapseExample'+post.PID.toString()}}" aria-expanded="false" attr.aria-controls="{{'collapseExample'+post.PID.toString()}}">Comments</button>
     </div>
     <div class="collapse" id="{{'collapseExample'+post.PID.toString()}}" style="margin-bottom: 13px">
-      <div class="post-box-title d-flex align-items-center" style="align-content: flex-end">
+      <div class="create-comment d-flex align-items-center" style="align-content: flex-end; margin-bottom:-10px">
         <div class="flex-shrink-0">
           <p
-            style="display:inline-block;font-size:1em;width:5em;height:5em;line-height:2.5em;text-align:center;border-radius:50%;background:plum;vertical-align:middle;margin-right:1em;margin-bottom:2em;color:white;">C
+            style="display:inline-block;font-size:1em;width:3em;height:3em;line-height:3em;text-align:center;border-radius:50%;background:plum;vertical-align:middle;margin-right:1em;margin-bottom:2em;color:white;">
+            <span style="font-size:2em; font-weight: bold">C</span>
           </p>
         </div>
         <div class="flex-grow-1 d-flex" >
-          <textarea class="form-control textarea shadow-none"  placeholder="Add Comment"></textarea>
+          <textarea class="form-control d-flex textarea shadow-none"  placeholder="Add Comment"></textarea>
         </div>
       </div>
       <div align="right">
