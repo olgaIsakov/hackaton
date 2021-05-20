@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router} from '@angular/router';
+import { id } from '@cds/core/internal';
 
 @Component({
   selector: 'app-main-menu',
@@ -23,18 +24,37 @@ export class MainMenuComponent implements OnInit {
     window.open("mailto:"+ e)
   }
 
+  signOut(){
+    //todo: clear cookies
+  }
+
+  collapseSearch(){
+    let elem = document.getElementById('collapseExample');
+    console.log(elem?.hidden)
+    if (elem != null){
+      if (elem.hidden === true){
+        elem.hidden=false
+
+      }
+      else {
+        elem.hidden = true
+      }
+    }
+  }
+
 
   ngOnInit() {
 
     // Initialize menu items:
     this.items =[
-      {icon:'pi pi-bars', command: ()=>{this.display = true}},
+        // {icon:'<img src="../../assets/Logo.png" width="70" height="70">',escape:false},
+        {icon:'pi pi-bars', command: ()=>{this.display = true}},
         {label: 'Home' ,id: 'home', icon: 'pi pi-fw pi-home', routerLink :['/Home']},
         {label: 'Sign In',id: 'signIn', icon: 'pi pi-sign-in', routerLink :['/SignIn']},
         {label: 'Sign Up', id: 'signUp',icon: 'pi pi-user-plus', routerLink :['/SignUp']},
         {label: 'Add Post', id: 'addPost',icon: 'pi pi-plus-circle', routerLink :['/AddPost']},
-        {label:'<span class="p-input-icon-right" width="200"><i class="pi pi-search" ></i><input type="text" pInputText [(ngModel)]="searchValue"/></span>', escape: false
-      }
+        {label:'Sign Out' ,icon:'pi pi-sign-out', command: this.signOut, style:{'position':'absolute',  'right': '0px'}},
+        {icon:'pi pi-search' ,command: this.collapseSearch, style:{'position':'absolute',  'right': '160px'}},
     ];
 
     // Find the current page and highlight it on the menu when refreshing:

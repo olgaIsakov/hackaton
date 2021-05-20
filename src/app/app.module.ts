@@ -25,15 +25,13 @@ import { CommentsComponent } from './comments/comments.component';
 import { ChildboxComponent } from './childbox/childbox.component';
 import { CardComponent } from './card/card.component';
 import {ToggleButtonModule} from 'primeng/togglebutton';
-import { SignOutComponent } from './sign-out/sign-out.component';
-
-
-
+import {DropdownModule} from 'primeng/dropdown';
 import {SidebarModule} from 'primeng/sidebar';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {BadgeModule} from 'primeng/badge';
 import { CommentComponent } from './comment/comment.component';
+import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +45,6 @@ import { CommentComponent } from './comment/comment.component';
     ChildboxComponent,
     CardComponent,
     HomeComponent,
-    SignOutComponent,
     CommentComponent
   ],
   imports: [
@@ -69,7 +66,9 @@ import { CommentComponent } from './comment/comment.component';
     SidebarModule,
     AvatarModule,
     AvatarGroupModule,
-    BadgeModule
+    BadgeModule,
+    DropdownModule,
+    TriStateCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],
