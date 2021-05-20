@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
     this.posts[1].PID = 1;
     this.posts[2].PID = 2;
     this.curPostPID = 3;
-    this.comments = [new CommentClass(0, this.lorem_impsum.slice(0, 50)), new CommentClass(1, this.lorem_impsum.slice(0, 100))];
+    // @ts-ignore
+    this.comments = [new CommentClass(this.lorem_impsum.slice(0, 50),0,0), new CommentClass(this.lorem_impsum.slice(0, 100))];
     (this.posts)[0].comments = this.comments;
     this.submitPostText = '';
   }
