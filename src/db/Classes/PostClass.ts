@@ -8,7 +8,7 @@ export class Post {
   PID!: number;
   date_created: string;
   tags : Array<string>;
-  comments!: Array<CommentClass>;
+  comments!: CommentClass[] | undefined;
   authorID : number;
   callerID!: number;
   visableToAll!: boolean;

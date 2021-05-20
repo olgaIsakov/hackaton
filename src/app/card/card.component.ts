@@ -23,7 +23,8 @@ export class CardComponent implements OnInit {
   }
 
   addComment(){
-    this.post?.comments.push(new CommentClass(this.commentText))
+    // @ts-ignore
+    this.post?.comments.push(new CommentClass(this.commentText,0,0))
   }
 
 }
