@@ -1,57 +1,52 @@
 import {CommentClass} from "./CommentClass"
-import {getComments, updatePost, createPost, getID} from "src/db/Classes/Api"
+import {getComments, updatePost, createPost} from "src/db/Classes/Api"
 
 var last_ind=0;
 
 export class Post{
   body: string;
-  PID!: number;
+  PID: string;
   date_created!: Date;
   tags : Array<string>;
   comments: Array<CommentClass>;
-  authorID : number;
-  callerID: number;
+  authorID : string;
+  callerID: string;
   visableToAll!: boolean;
 
- 
+
   getComments(){
-    //var comments = getComments(this.callerID, this.PID);
-   // return comments;
-   return []
+    var comments = getComments(this.callerID, this.PID);
+    return comments;
   }
 
   updatePost(){
     updatePost(this);
   }
-  async uploadPost(){
-    this.PID= await getID("PID")
+  uploadPost(){
     createPost(this);
   }
-  async delete(){
-    console.log("in the func delete")
-    let rt="initial rt";
-    let getPostURL = 'https://5f52owjwyl.execute-api.eu-central-1.amazonaws.com/default/delete'+'?PDI='+this.PID
-    await $.getJSON(getPostURL , function( json) {
-        rt=json.rt;
-        })   
-    console.log("delete address:\n"+getPostURL)
-    if(rt=="1") return true
-    return false
+  delete(){
+    let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/delete_post?'+this.PID;
+    let res = $.getJSON(getPostURL)
+    return res;
   }
 
-  constructor (body="", authorID=-1,PID=-1, callerID=-1){
+  constructor(callerID="-1", body="", tags=[], authorID="-1"){
     this.body = body;
-    this.PID=PID
-    console.log(this.PID)
+    this.PID = getPID();
     //this.date_created=Date.now();
-    this.tags = [];
-    this.callerID = callerID;
+    this.tags = tags;
     this.comments = this.getComments();
     this.authorID = authorID;
+    this.callerID = callerID;
     this.visableToAll= true;
   }
 
 
 
-
+}
+function getPID(): string {
+  var rt = last_ind.toString();
+  last_ind++;
+  return rt;
 }
