@@ -20,7 +20,7 @@ export async function getPostByPID(PID: number){
 
     await $.getJSON(getPostURL , function( json) {
         rt=parserPost(json);
-        })  
+        })
     return rt;
   }
 // works
@@ -30,7 +30,7 @@ export async function login(username: string, password: string): Promise<boolean
     let getPostURL = 'https://5f52owjwyl.execute-api.eu-central-1.amazonaws.com/default/signin'+'?username='+username+"&password="+password;
     await $.getJSON(getPostURL , function( json) {
         rt=json.rt;
-        })   
+        })
     console.log("login address:\n"+getPostURL)
     if(rt=="1") return true
     return false
@@ -41,7 +41,7 @@ export async function getID(type: string){
     let rt="-1";
     await $.getJSON(getPostURL , function(json) {
         rt=json.body;
-        })  
+        })
     return Number(rt);
   }
 
@@ -50,7 +50,7 @@ async function checkExistUsernameURL(username:string) :Promise<Boolean>{
     let checkExistUsernameURL= '/////////////////////////'+'?username='+username
     await $.getJSON(checkExistUsernameURL , function( json) {
         rt=json.rt;
-        }) 
+        })
         if(rt=="1") return true
     return false
 }
@@ -67,7 +67,7 @@ export async function signup(username: string, password: string): Promise<boolea
     console.log("signup address:\n"+getPostURL)
     await $.getJSON(getPostURL , function( json) {
         rt=json.rt;
-        })   
+        })
     if(rt=="1") return true
     return false
 }
@@ -81,7 +81,7 @@ export function ConvertJsonToPosts(res: {[index: string]:any}){
     var i = 0;
     while(i.toString() in res ){
         let j=i.toString();
-        
+
         var body=res[j]["body"];
         var PID = res[j]["PID"];
         posts_list.push(new Post(PID, body));
@@ -123,14 +123,14 @@ export function ConvertJsonToComments(res: {[index: string]:any}) : CommentClass
     return comments_list;
 }
 
-// not implement 
+// not implement
 export async function getComments(callerID:number, PID: number): Promise <CommentClass[]>{
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/getComments?'
                     +callerID.toString() +"&PID="+PID.toString();
     let res = $.getJSON(getPostURL);
     //let rt = (res : {[index: string]:any}) => {return ConvertJsonToComments(res);};
     return ConvertJsonToComments(res);
-    
+
 }
 
 // works, add date
@@ -151,11 +151,11 @@ export async function  createPost(post: Post){
     console.log("crate post address:\n"+getPostURL)
     await $.getJSON(getPostURL , function( json) {
         rt=json.rt;
-        })   
+        })
     if(rt=="1") return true
     return false
   }
-  
+
 // visableTo, subComments
 export async function  createComment (comment: CommentClass): Promise<Boolean>{
     console.log("in the func create comment for CID: "+comment.CID)
@@ -169,7 +169,7 @@ export async function  createComment (comment: CommentClass): Promise<Boolean>{
     if(comment.authorID!=-1)
         getURL+=("&authorID="+comment.authorID)
     else{ return false}
-    
+
     getURL+=("&visableToAll="+`${comment.visableToAll}`)
     getURL+=("&postAutherID="+`${comment.postAutherID}`)
     getURL+=("&visableToAll="+`${comment.visableToAll}`)
@@ -183,7 +183,7 @@ export async function  createComment (comment: CommentClass): Promise<Boolean>{
 
     await $.getJSON(getURL , function( json) {
         rt=json.rt;
-        })   
+        })
     if(rt=="1") return true
     return false
 
@@ -211,7 +211,7 @@ export async function updateComment(comment:CommentClass):Promise<Boolean>{
 
     await $.getJSON(getURL , function( json) {
         rt=json.rt;
-        })   
+        })
     if(rt=="1") return true
     return false
 }
