@@ -95,7 +95,10 @@ export function ConvertJsonToComments(res: {[index: string]:any}) : CommentClass
 // need to prase json
 export function getComments(callerID:number, PID: number): CommentClass[]{
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/getComments?'
-                    +callerID +"&"+PID.toString();
+                    +callerID
+                    if (PID != undefined){
+                      getPostURL += '&PID='+PID.toString()
+                    }
     let res = $.getJSON(getPostURL);
     //let rt = (res : {[index: string]:any}) => {return ConvertJsonToComments(res);};
     return ConvertJsonToComments(res);
