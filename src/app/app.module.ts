@@ -30,7 +30,11 @@ import {SidebarModule} from 'primeng/sidebar';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {BadgeModule} from 'primeng/badge';
+import { CommentComponent } from './comment/comment.component';
+import {PanelModule} from 'primeng/panel';
 import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
+import { TagModule } from 'primeng/tag';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +48,7 @@ import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
     ChildboxComponent,
     CardComponent,
     HomeComponent,
-
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,9 @@ import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
     AvatarGroupModule,
     BadgeModule,
     DropdownModule,
-    TriStateCheckboxModule
+    TriStateCheckboxModule,
+    TagModule,
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent],

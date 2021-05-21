@@ -9,4 +9,24 @@
         <app-card [post] = "posts[i]"></app-card>
     </li>
 </ul>
+<div class = "home">
+  <div  class="container border rounded shadow" style="align-content:center; width:70%; margin-top: 20px">
+    <div class="post-box-body">
 
+      <div class="post-box-title d-flex align-items-center" style="align-content: flex-end">
+
+        <div class="flex-grow-1 d-flex" style="margin-top: 20px">
+          <textarea class="form-control textarea shadow-none" placeholder="What's on your mind?" [(ngModel)]="submitPostText"></textarea>
+        </div>
+      </div>
+      <div class="container" style="margin-bottom: 10px" align="right">
+        <button type="button" class="btn btn-light shadow-none" (click)="addPost()" >Submit Post</button>
+      </div>
+    </div>
+  </div>
+
+    <div *ngFor="let _post of posts">
+
+        <app-card [post] = _post></app-card>
+    </div>
+</div>

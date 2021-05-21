@@ -3,7 +3,7 @@ import {createComment, updateComment, getID} from "src/db/Classes/Api"
 
 var last_ind=0;
 export class CommentClass{
- 
+
   CID!: number
   body!: string
   authorID: number
@@ -16,11 +16,12 @@ export class CommentClass{
   postAutherID!: number
 
 
-  constructor(CID=-1, body="",authorID=-1,replyingTo=-1, postAutherID=-1,  callerID =-1){
-    this.CID=CID
-    console.log(this.CID)
+  constructor(body="",authorID=-1,replyingTo=-1, postAutherID=-1,  callerID =-1){
+    this.CID=-1
+    //console.log(this.CID)
     this.body=body
     this.date=new Date()
+    this.replyingTo=replyingTo
     this.authorID =authorID
     this.visableToAll=true
     this.callerID = callerID
@@ -31,11 +32,12 @@ export class CommentClass{
 
 
 
-  async upload(): Promise<Boolean>{
+  async upload(): Promise<CommentClass>{
     this.CID= await getID("CID")
-    return createComment(this);
+    createComment(this);
+    return this;
   }
-  
+
   async update(): Promise<Boolean>{
     return updateComment(this);
   }
@@ -45,5 +47,5 @@ export class CommentClass{
     let res = $.getJSON(getPostURL);
     return res;
   }
- 
+
 }
