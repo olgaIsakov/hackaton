@@ -53,7 +53,7 @@ export class MainMenuComponent implements OnInit {
         {label: 'Sign In',id: 'signIn', icon: 'pi pi-sign-in', routerLink :['/SignIn']},
         {label: 'Sign Up', id: 'signUp',icon: 'pi pi-user-plus', routerLink :['/SignUp']},
         // {label: 'Add Post', id: 'addPost',icon: 'pi pi-plus-circle', routerLink :['/AddPost']},
-        {label:'Sign Out' ,icon:'pi pi-sign-out', command: this.signOut, style:{'position':'absolute',  'right': '0px','background-color':'transparent'}},
+        {label:'Sign Out' ,icon:'pi pi-sign-out', command: this.signOut, style:{'position':'absolute','right': '0px'}},
         {icon:'pi pi-search' ,command: this.collapseSearch, style:{'position':'absolute',  'right': '160px'}},
         {label: 'FAQ', id: 'signUp',icon: 'pi pi-question-circle', routerLink :['/FAQ']}
 

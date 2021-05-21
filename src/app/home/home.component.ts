@@ -53,6 +53,7 @@ export class HomeComponent implements OnInit {
     post7.PID = 7
     post7.comments = [new CommentClass("אני בטוח שזה לא נכון. לכל אחד יש מישהו שאוהב אותו עד רמה שאתה חושב ״למה לעזאזל שהוא יאהב אותי ככה״, אולי את פשוט לא מסתכלת על קבוצת האנשים הנכונה, וכשתמצאי את האנשים האלה תיצמדי אליהם כי הם אלה שיעשו לך טוב"),new CommentClass("אני ממש מבינה אותך ! זה נשמע לא פשוט בכלל ! אני ממש מאמינה שהכל בחיים זה תקופות וגם זה יעבור ! תהי חזקה")]
 post7.comments[0].replyingTo = 7
+post7.comments[0].CID = 2
     post7.comments[1].replyingTo = 7
     // @ts-ignore
     this.comments = [new CommentClass(this.lorem_impsum.slice(0, 50),0,0), new CommentClass(this.lorem_impsum.slice(0, 100))];
@@ -70,6 +71,7 @@ post7.comments[0].replyingTo = 7
     comment_22.body="מבינה אותך לגמרי יש לי הרבה אקסים יחסית וגם אני עברתי את זה כל פעם מחדש. חיית בלעדיו נכון? תחיי גם אחריו. את לא תלויה באף אחד נשמה שלי אולי רגשית זה ככה אבל רגש זה רגש .. תחשבי על זה מהשכל האם בכלל היה לזה עתיד? האם בכלל הסתדרתם? האם זה שווה את זה? את באמת רוצה לחזור לזה עכשיו יש לך בכלל כוחות להתמודד עם זה? נפרדתם בגלל סיבה מסויימת שכנראה תמיד תיהיה שם אז אל תשלי את עצמך בתקוותגם ככה זוגיות זה קשה ואת צריכה להשקיע בזה המון אנרגיות ולהתחשב ולהתפשר ולתת תשומת לב ולאהוב ומלא שיט רומנטי ומכיל. אז עוד עם האקס את שוב רוצה את זה עכשיו? זובי"
     let comments_list: Array<CommentClass> =[comment_22, comment_21]
     post_8.comments=comments_list
+    post_8.comments[0].CID=4
     this.posts = [post7, post9, post_8]
   }
   lorem_impsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu eros a lorem efficitur rhoncus at finibus erat. Quisque consectetur nisi sed mauris elementum condimentum. Praesent sodales facilisis facilisis. Donec a urna tempor, efficitur mi porta, accumsan augue. Praesent volutpat odio metus, a condimentum mi porttitor eu. Nunc facilisis pharetra purus non scelerisque. Vivamus mattis, tellus vel pellentesque efficitur, nibh erat bibendum ipsum, in tincidunt augue lorem sit amet urna. Etiam quis ex elit. Mauris lacus sem, luctus id iaculis in, imperdiet non nunc. Suspendisse eu egestas nibh. Duis tellus lacus, lobortis at erat at, dignissim sollicitudin erat.';
