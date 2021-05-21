@@ -159,7 +159,7 @@ export async function signup(username: string, password: string): Promise<boolea
 export async function getAllPosts(callerID=-1, without_tags=[], search_key="", userID=-1){
     console.log("in the func getAllPosts")
     let getPostURL = 'https://ae1f8bklkk.execute-api.eu-central-1.amazonaws.com/default/getAllPost?callerID='+callerID.toString();
-    let rt
+    //let rt
     if(search_key!=""){
        getPostURL+=("&"+search_key);
     }
@@ -170,9 +170,9 @@ export async function getAllPosts(callerID=-1, without_tags=[], search_key="", u
      getPostURL+=("&"+userID.toString());
     }
     console.log("getAllPosts address:\n"+getPostURL)
-    await $.getJSON(getPostURL , async function( json) {
+    let rt:Array<Post> = await $.getJSON(getPostURL , async function( json) {
         rt=await parserPosts(callerID, json);
-        })
+        }).then(rt => {return rt})
     console.log(rt)
     return rt
 }
@@ -181,15 +181,15 @@ export async function getAllPosts(callerID=-1, without_tags=[], search_key="", u
 // need to prase json
 export async function getComments(callerID:number, PID: number): Promise<Array<CommentClass>>{
     console.log("in the func getComments")
-    let rt=[new CommentClass()]
+    //let rt=[new CommentClass()]
     let getPostURL = 'https://7ycxmc4k53.execute-api.eu-central-1.amazonaws.com/default/getPostComments?callerID='+callerID
     if (PID != undefined){
         getPostURL += '&PID='+PID.toString()
         }
     console.log("crate post address:\n"+getPostURL)
-    await $.getJSON(getPostURL , function( json) {
+    let rt:Array<CommentClass> = await $.getJSON(getPostURL , function( json) {
         rt=parserComments(callerID, json);
-        })
+        }).then(ret => {return ret});
     return rt
 
 
