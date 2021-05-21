@@ -13,14 +13,13 @@
         </p>
       </div>
       <p *ngIf="post.tags.length != 0" style="font-size: large;margin-right: 20px;margin-left: 15px;">Triggers: </p>
-      <div *ngFor="let tag of post.tags">
-        <div align="right" style="margin-top: 20px;margin-left: 4px;">
-          <span class="badge bg-danger"  *ngIf="tag==='Suicide'" style="font-size:small;padding-top: 8px;padding-bottom: 8px;padding-right: 8px;padding-left: 8px;">Suicide</span>
-          <span class="badge bg-danger" *ngIf="tag==='Rape'" style="font-size: small;padding-top: 8px;padding-bottom: 8px;padding-right: 8px;padding-left: 8px;">Rape</span>
-          <span class="badge bg-danger" *ngIf="tag==='Death'" style="font-size: small;padding-top: 8px;padding-bottom: 8px;padding-right: 8px;padding-left: 8px;">Death</span>
-        </div>
+        <div *ngFor="let tag of post.tags">
+          <div align="right" style="margin-top: 20px;margin-left: 4px;">
+            <span class="badge bg-danger"  *ngIf="tag==='Suicide'" style="font-size:small;padding-top: 8px;padding-bottom: 8px;padding-right: 8px;padding-left: 8px;">Suicide</span>
+            <span class="badge bg-danger" *ngIf="tag==='Rape'" style="font-size: small;padding-top: 8px;padding-bottom: 8px;padding-right: 8px;padding-left: 8px;">Rape</span>
+            <span class="badge bg-danger" *ngIf="tag==='Death'" style="font-size: small;padding-top: 8px;padding-bottom: 8px;padding-right: 8px;padding-left: 8px;">Death</span>
+          </div>
       </div>
-
     </div>
 
     <div class="post-box-body">
