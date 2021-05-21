@@ -230,9 +230,11 @@ export async function  createComment (comment: CommentClass): Promise<Boolean>{
     if(comment.body!="")
         getURL+=("&body="+comment.body.split(" ").join("_"))
     else{ return false}
-    if(comment.authorID!=-1)
-        getURL+=("&authorID="+comment.authorID)
-    else{ return false}
+    if(comment.authorID==undefined)
+        comment.authorID = -1
+
+    getURL+=("&authorID="+comment.authorID)
+
     console.log("replayingTo in the create func = " + comment.replyingTo)
     getURL+=("&replyingTo="+`${comment.replyingTo}`)
     getURL+=("&visableToAll="+`${comment.visableToAll}`)

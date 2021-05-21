@@ -23,7 +23,8 @@ export class CardComponent implements OnInit {
   }
 
   async addComment(){
-    let nc = new CommentClass(this.commentText, this.post?.PID);
+    console.log("post id = "+ this.post?.PID)
+    let nc = new CommentClass(this.commentText, this.post?.authorID, this.post?.PID);
     await nc.upload();
     console.log("succesfully uploaded comment")
     // @ts-ignore
