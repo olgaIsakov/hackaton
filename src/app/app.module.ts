@@ -34,6 +34,7 @@ import { CommentComponent } from './comment/comment.component';
 import {PanelModule} from 'primeng/panel';
 import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
 import { TagModule } from 'primeng/tag';
+import { FAQComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TagModule } from 'primeng/tag';
     ChildboxComponent,
     CardComponent,
     HomeComponent,
-    CommentComponent
+    CommentComponent,
+    FAQComponent
   ],
   imports: [
     BrowserModule,

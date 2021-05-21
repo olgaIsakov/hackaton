@@ -5,7 +5,7 @@
         style="display:inline-block;font-size:1em;width:2.5em;height:2.5em;line-height:2.5em;text-align:center;border-radius:50%;background:plum;vertical-align:middle;margin-right:1em;color:white;">{{comment.authorID.toString()[0]}}
       </p>
       <div align="center" style="margin-right:15px">
-        <span>&#9989;</span>
+        <img *ngIf="comment.CID%2===0" src="../../assets/verified.png" alt="Verified" width="30px" height="25px">
       </div>
     </div>
     <div class="flex-grow-1 ms-3">

@@ -15,6 +15,12 @@
         </div>
       </div>
       <div class="container" style="margin-bottom: 10px" align="right">
+
+<div class="form-check form-switch" align="left" style="margin-top: 5px;">
+
+  <span>Post Anonymously</span>
+  <input class="form-check-input shadow-none" type="checkbox" id="flexSwitchCheckDefault" align="right" checked>
+</div>
         <button type="button" class="btn btn-light shadow-none" (click)="addPost()" >Submit Post</button>
       </div>
     </div>
@@ -26,7 +32,7 @@
 </ul>
 
 
-    <div *ngFor="let _post of posts">
+    <div id="posts" *ngFor="let _post of posts">
 
         <app-card [post] = _post></app-card>
     </div>

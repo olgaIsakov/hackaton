@@ -11,7 +11,10 @@
 </p-editor>
 
 <p>Post Anonymously:</p>
-<p-inputSwitch class="toggle" (onChange)="handleChange($event)"></p-inputSwitch>
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+</div>
+<!-- <p-inputSwitch class="toggle" (onChange)="handleChange($event)"></p-inputSwitch> -->
 
 <p-button label="Submit" icon="pi pi-check" (onClick)="submit()"></p-button>
 
