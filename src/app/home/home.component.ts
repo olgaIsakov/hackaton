@@ -36,8 +36,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addPost(){
-    this.posts.unshift(new Post(this.submitPostText))
+  async addPost(){
+    let np = new Post(this.submitPostText, -1,[],-1);
+    await np.upload();
+    this.posts.unshift(np)
   }
 
 

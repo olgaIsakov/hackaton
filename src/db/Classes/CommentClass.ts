@@ -32,9 +32,10 @@ export class CommentClass{
 
 
 
-  async upload(): Promise<CommentClass>{
+  async upload(){
     this.CID= await getID("CID")
-    createComment(this);
+    await createComment(this);
+    console.log("End of comment upload")
     return this;
   }
 

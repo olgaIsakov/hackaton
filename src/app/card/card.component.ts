@@ -19,9 +19,16 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addComment(){
+  async addComment(){
+    let nc = new CommentClass(this.commentText, this.post?.PID);
+    await nc.upload();
+    console.log("succesfully uploaded comment")
     // @ts-ignore
-    this.post?.comments.push(new CommentClass(this.commentText,0,0))
+    if(!this.post?.comments){
+      // @ts-ignore
+      this.post?.comments = [];
+    }
+    this.post?.comments?.push(nc)
   }
 
 }
