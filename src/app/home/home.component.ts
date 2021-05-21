@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ApplicationRef, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CardComponent } from './../card/card.component';
 import {  Post } from 'src/db/Classes/PostClass';
 import { CommentClass } from 'src/db/Classes/CommentClass';
@@ -12,12 +12,30 @@ import {getAllPosts} from 'src/db/Classes/Api';
 })
 
 export class HomeComponent implements OnInit {
+  value: any;
+  counter=0;
+
+  sortByDates(){
+    this.counter ++;
+    let idx:number = this.counter % 2;
+    switch(idx){
+      case 0:
+        return;
+      case 1:
+        this.posts = this.sortNewFirst();
+        break;
+      case 2:
+        this.posts = this.sortOldFirst();
+        break;
+    }
+
+  }
 
   // display: boolean = false;
 
   constructor() {
     // this.posts = getAllPosts();
-    this.posts = [new Post(this.lorem_impsum), new Post( this.lorem_impsum.slice(20, 50)), new Post( this.lorem_impsum.slice(1, 50))];
+    this.posts = [new Post(this.lorem_impsum,1,["Suicide"]), new Post( this.lorem_impsum.slice(20, 50)), new Post( this.lorem_impsum.slice(1, 50),2,["Rape"])];
     this.posts[0].PID = 0;
     this.posts[1].PID = 1;
     this.posts[2].PID = 2;
@@ -34,11 +52,19 @@ export class HomeComponent implements OnInit {
   cards = Array<CardComponent>();
   comments: CommentClass[] | undefined;
 
+  sortNewFirst(){
+    return this.posts.sort((a, b) => new Date(b.date_created).getTime() - new Date(a.date_created).getTime());
+  }
+
   ngOnInit(): void {
   }
-  addPost(){
-    this.posts.unshift(new Post(this.submitPostText))
+  async addPost(){
+    let np = new Post(this.submitPostText, -1,[],-1);
+    await np.upload();
+    this.posts.unshift(np)
   }
+  sortOldFirst(){
+    return this.posts.sort((b,a) => new Date(b.date_created).getTime() - new Date(a.date_created).getTime());
 
-
+}
 }

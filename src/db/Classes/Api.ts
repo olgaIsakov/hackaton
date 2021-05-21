@@ -73,10 +73,10 @@ export async function getPostByPID (callerID:number, PID: number) :Promise<Post>
 
     await $.getJSON(getPostURL , function( json) {
         rt=parserPost(callerID, json);
-        }) 
+        })
     if(rt==undefined){
         return new Post("none");
-    } 
+    }
     else{
     console.log("in the getPostByPID func - rt is "+rt)
     }
@@ -89,7 +89,7 @@ export async function login(username: string, password: string): Promise<boolean
     let getPostURL = 'https://5f52owjwyl.execute-api.eu-central-1.amazonaws.com/default/signin'+'?username='+username+"&password="+password;
     await $.getJSON(getPostURL , function( json) {
         rt=json.rt;
-        })   
+        })
     console.log("login address:\n"+getPostURL)
     if(rt=="1") return true
     return false
@@ -102,7 +102,7 @@ export async function getID(type: string){
     let rt="-1";
     await $.getJSON(getPostURL , function(json) {
         rt=json;
-        })  
+        })
     console.log(getPostURL)
     console.log("new ID is - "+rt)
     return Number(rt);
@@ -115,7 +115,7 @@ async function checkExistUsernameURL(username:string) :Promise<Boolean>{
     let checkExistUsernameURL= '/////////////////////////'+'?username='+username
     await $.getJSON(checkExistUsernameURL , function( json) {
         rt=json.rt;
-        }) 
+        })
         if(rt=="1") return true
     return false
 }
@@ -135,7 +135,7 @@ export async function signup(username: string, password: string): Promise<boolea
     console.log("signup address:\n"+getPostURL)
     await $.getJSON(getPostURL , function( json) {
         rt=json.rt;
-        })   
+        })
     if(rt=="1") return true
     return false
 }
@@ -163,7 +163,7 @@ export async function getAllPosts(callerID=-1, without_tags=[], search_key="", u
     console.log("getAllPosts address:\n"+getPostURL)
     await $.getJSON(getPostURL , async function( json) {
         rt=await parserPosts(callerID, json);
-        }) 
+        })
     return rt
 }
 
@@ -191,7 +191,7 @@ export async function getComments(callerID:number, PID: number): Promise<Array<C
     console.log("crate post address:\n"+getPostURL)
     await $.getJSON(getPostURL , function( json) {
         rt=parserComments(callerID, json);
-        }) 
+        })
     return rt
 
 
@@ -209,17 +209,17 @@ export async function  createPost(post: Post){
         getPostURL+=("&body="+post.body.split(" ").join("_"))
     }
     else{ return}
-    if(post.authorID!=-1)
+
     getPostURL+=("&authorID="+post.authorID)
     getPostURL+=("&visableToAll="+`${post.visableToAll}`)
     console.log("create post address:\n"+getPostURL)
     await $.getJSON(getPostURL , function( json) {
         rt=json.rt;
-        })   
+        })
     if(rt=="1") return true
     return false
   }
-  
+
 // visableTo, subComments
 export async function  createComment (comment: CommentClass): Promise<Boolean>{
     console.log("in the func create comment for CID: "+comment.CID)
@@ -233,7 +233,8 @@ export async function  createComment (comment: CommentClass): Promise<Boolean>{
     if(comment.authorID!=-1)
         getURL+=("&authorID="+comment.authorID)
     else{ return false}
-    
+    console.log("replayingTo in the create func = " + comment.replyingTo)
+    getURL+=("&replyingTo="+`${comment.replyingTo}`)
     getURL+=("&visableToAll="+`${comment.visableToAll}`)
     getURL+=("&postAutherID="+`${comment.postAutherID}`)
     getURL+=("&visableToAll="+`${comment.visableToAll}`)
@@ -247,7 +248,8 @@ export async function  createComment (comment: CommentClass): Promise<Boolean>{
 
     await $.getJSON(getURL , function( json) {
         rt=json.rt;
-        })   
+        })
+    console.log("end of createComment")
     if(rt=="1") return true
     return false
 
@@ -275,7 +277,7 @@ export async function updateComment(comment:CommentClass):Promise<Boolean>{
 
     await $.getJSON(getURL , function( json) {
         rt=json.rt;
-        })   
+        })
     if(rt=="1") return true
     return false
 }
