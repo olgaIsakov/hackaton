@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { getAllPosts } from 'src/db/Classes/Api';
 import {  Post } from 'src/db/Classes/PostClass';
 import {CommentClass} from '../../db/Classes/CommentClass';
 import {HomeComponent} from '../home/home.component';
@@ -34,4 +35,7 @@ export class CardComponent implements OnInit {
     this.post?.comments?.push(nc)
   }
 
+  async get_posts(){
+    return await getAllPosts(-1)
+  }
 }

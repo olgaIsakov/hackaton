@@ -32,7 +32,6 @@ export class SubmitPostComponent implements OnInit {
      }
    
     getAllPosts(-1)
-   console.log(await getUserName("0"))
 
     this.text="this works!!"
   }
