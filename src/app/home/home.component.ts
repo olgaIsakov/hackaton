@@ -72,6 +72,10 @@ post7.comments[0].CID = 2
     let comments_list: Array<CommentClass> =[comment_22, comment_21]
     post_8.comments=comments_list
     post_8.comments[0].CID=4
+    post7.tags=["Suicide","Death"]
+    post9.tags = ["Rape"]
+    post_8.tags = ["Suicide"]
+
     this.posts = [post7, post9, post_8]
   }
   lorem_impsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu eros a lorem efficitur rhoncus at finibus erat. Quisque consectetur nisi sed mauris elementum condimentum. Praesent sodales facilisis facilisis. Donec a urna tempor, efficitur mi porta, accumsan augue. Praesent volutpat odio metus, a condimentum mi porttitor eu. Nunc facilisis pharetra purus non scelerisque. Vivamus mattis, tellus vel pellentesque efficitur, nibh erat bibendum ipsum, in tincidunt augue lorem sit amet urna. Etiam quis ex elit. Mauris lacus sem, luctus id iaculis in, imperdiet non nunc. Suspendisse eu egestas nibh. Duis tellus lacus, lobortis at erat at, dignissim sollicitudin erat.';
