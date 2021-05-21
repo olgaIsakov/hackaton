@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
         this.posts = this.sortOldFirst();
         break;
     }
-
   }
 
   // display: boolean = false;
@@ -56,6 +55,10 @@ export class HomeComponent implements OnInit {
     return this.posts.sort((a, b) => new Date(b.date_created).getTime() - new Date(a.date_created).getTime());
   }
 
+  sortOldFirst(){
+    return this.posts.sort((b,a) => new Date(b.date_created).getTime() - new Date(a.date_created).getTime());
+
+}
   ngOnInit(): void {
   }
   async addPost(){
@@ -63,8 +66,5 @@ export class HomeComponent implements OnInit {
     await np.upload();
     this.posts.unshift(np)
   }
-  sortOldFirst(){
-    return this.posts.sort((b,a) => new Date(b.date_created).getTime() - new Date(a.date_created).getTime());
 
-}
 }
