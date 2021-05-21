@@ -30,10 +30,11 @@ import {SidebarModule} from 'primeng/sidebar';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {BadgeModule} from 'primeng/badge';
-// @ts-ignore
 import { CommentComponent } from './comment/comment.component';
 import {PanelModule} from 'primeng/panel';
 import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
+import { TagModule } from 'primeng/tag';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,7 @@ import {TriStateCheckboxModule} from 'primeng/tristatecheckbox';
     BadgeModule,
     DropdownModule,
     TriStateCheckboxModule,
+    TagModule,
     PanelModule
   ],
   providers: [],

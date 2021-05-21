@@ -17,6 +17,9 @@ export class CardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    for (let tag of this.post!.tags){
+      console.log(tag)
+    }
   }
 
   async addComment(){
