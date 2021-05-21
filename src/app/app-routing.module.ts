@@ -1,3 +1,4 @@
+import { FAQComponent } from './faq/faq.component';
 import { HomeComponent } from './home/home.component';
 import { SubmitPostComponent } from './submit-post/submit-post.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -11,7 +12,8 @@ const routes: Routes = [{path: '' , component: HomeComponent},
   {path: 'Home' , component: HomeComponent},
 {path: 'SignIn' , component: SignInComponent},
 {path: 'SignUp' , component: SignUpComponent},
-{path: 'AddPost' , component: SubmitPostComponent}
+{path: 'AddPost' , component: SubmitPostComponent},
+{path: 'FAQ' , component: FAQComponent}
 ];
 
 @NgModule({

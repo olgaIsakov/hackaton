@@ -173,6 +173,7 @@ export async function getAllPosts(callerID=-1, without_tags=[], search_key="", u
     await $.getJSON(getPostURL , async function( json) {
         rt=await parserPosts(callerID, json);
         })
+    console.log(rt)
     return rt
 }
 
