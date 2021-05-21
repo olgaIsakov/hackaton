@@ -35,11 +35,25 @@ export class HomeComponent implements OnInit {
 
   constructor() {
     // this.posts = getAllPosts();
-    this.posts = [new Post(this.lorem_impsum,1,["Suicide"]), new Post( this.lorem_impsum.slice(20, 50)), new Post( this.lorem_impsum.slice(1, 50),2,["Rape"])];
+    this.posts = [new Post(this.lorem_impsum,1,["Suicide"],0),
+      new Post( this.lorem_impsum.slice(20, 50),-1,[],1), new Post( this.lorem_impsum.slice(1, 50),2,["Rape"],2)];
     this.posts[0].PID = 0;
     this.posts[1].PID = 1;
     this.posts[2].PID = 2;
     this.curPostPID = 3;
+
+    let post9 = new Post('נראלי שאני בדיכאון.לומדת תואר נחשק, בזוגיות הרבה זמן, סה"כ במדדים אובייקטיבים החיים דבש. לפני כמה חודשים חוויתי משבר שגורם לי לאט לאט לנבול מבפנים. לא רואים עליי מבחוץ, אני יציבה ונינוחה ,עצבים מברזל. אבל מבפנים אני מאבדת עניין ואמון באנשים סביבי, כולם נראים לי אגואיסטים ומשעממים. אפס מקוריות. כשאני מביטה לאנשים בעיניים כבר אין ניצוץ,  לא את שלהם ולא שיקוף של הניצוץ שלי.')
+    post9.PID = 9;
+    let post9_comments = [new CommentClass('קחי אותה לשיחה, עדיף אחת-על-אחת ובמקום ניטרלי ככל האפשר כדי שהיא לא תרגיש מאוימת.תכיני אותה מראש לזה שהיא לא תאהב את מה שיש לך להגיד ותגידי בכנות שגם לך זה קשה, אבל שהיא חשובה לך ושאת לא מוכנה לעמוד מנגד.תגידי לה שלדעתך מדובר במערכת יחסים מתעללת ותנמקי את עצמך, כולל דוגמאות מהחדשות שלצערנו כולנו מכירים. תדגישי לה כל הזמן שאת עושה את זה כי את אוהבת אותה ודואגת לה.תהיי חזקה 🙏🏻'),
+      new CommentClass("אני פה בשבילך ! חבר שלי עבר את זה גם ")]
+    post9_comments[0].replyingTo = 9;
+    post9_comments[1].replyingTo = 9;
+    post9.comments = post9_comments;
+    let post7 = new Post("כל מי שסביבי בתואר ובחיים צריך ממני משהו או רוצה לשכב איתי... אין לי אוזן תומכת או חברות. ניסיתי לבקש עזרה ניסיתי טיפול פסיכולוגי ניסיתי לארגן מפגשים. רוב הזמן זה מרגיש שעושים לי טובה שבכלל רוצים לפגוש אותי, אבל כלפי חוץ עסקים כרגילכבר שנים שאני בסבבי דיכאון הולכים וחוזרים")
+    post7.PID = 7
+    post7.comments = [new CommentClass("אני בטוח שזה לא נכון. לכל אחד יש מישהו שאוהב אותו עד רמה שאתה חושב ״למה לעזאזל שהוא יאהב אותי ככה״, אולי את פשוט לא מסתכלת על קבוצת האנשים הנכונה, וכשתמצאי את האנשים האלה תיצמדי אליהם כי הם אלה שיעשו לך טוב"),new CommentClass("אני ממש מבינה אותך ! זה נשמע לא פשוט בכלל ! אני ממש מאמינה שהכל בחיים זה תקופות וגם זה יעבור ! תהי חזקה")]
+post7.comments[0].replyingTo = 7
+    post7.comments[1].replyingTo = 7
     // @ts-ignore
     this.comments = [new CommentClass(this.lorem_impsum.slice(0, 50),0,0), new CommentClass(this.lorem_impsum.slice(0, 100))];
     (this.posts)[0].comments = this.comments;

@@ -30,9 +30,9 @@ export class SubmitPostComponent implements OnInit {
         signup(new_user.username,new_user.password)
         console.log("return value in submit func is: "+await login(new_user.username,new_user.password))
      }
-   
+
    // getAllPosts(-1)
-   console.log(await getUserName("0"))
+   console.log(await getUserName('0'))
 
     this.text="this works!!"
   }

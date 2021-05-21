@@ -7,7 +7,7 @@ export default class Api{
 
     // if i delete it get stuck..
 }
-export async function getUserName(UID:string){
+export async function getUserName(UID: string | undefined){
     console.log("in the getUserName func")
     let rt
     let getPostURL = 'https://r47rlfvgrd.execute-api.eu-central-1.amazonaws.com/default/getUsenameByUID'+'?UID='+UID
@@ -16,6 +16,7 @@ export async function getUserName(UID:string){
     await $.getJSON(getPostURL , function( json) {
         rt=json.username
         })
+
     return rt
 }
 
