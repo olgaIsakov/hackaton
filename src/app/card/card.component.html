@@ -5,12 +5,12 @@
       <div class="flex-shrink-0">
         <p
           style="display:inline-block;font-size:1em;width:5em;height:5em;line-height:5em;text-align:center;border-radius:50%;background:plum;vertical-align:middle;margin-right:1em;margin-bottom:2em;color:white;">
-          <span style="font-size:4.5em; font-weight: bold;">P</span>
+          <span style="font-size:4.5em; font-weight: bold;">{{post.PID}}</span>
         </p>
       </div>
       <div class="flex-grow-1 ms-3">
         <p style="color:lightgray">
-          This is some content from a media component. You can replace this with any content and adjust it as needed.
+         {{post.date_created}}
         </p>
       </div>
       <p *ngIf="post.tags.length != 0" style="font-size: large;margin-right: 20px;margin-left: 15px;">Triggers: </p>

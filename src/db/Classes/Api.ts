@@ -7,7 +7,7 @@ export default class Api{
 
     // if i delete it get stuck..
 }
-export async function getUserName(UID:string){
+export async function getUserName(UID: string | undefined){
     console.log("in the getUserName func")
     let rt
     let getPostURL = 'https://r47rlfvgrd.execute-api.eu-central-1.amazonaws.com/default/getUsenameByUID'+'?UID='+UID
@@ -16,6 +16,7 @@ export async function getUserName(UID:string){
     await $.getJSON(getPostURL , function( json) {
         rt=json.username
         })
+
     return rt
 }
 
@@ -227,9 +228,11 @@ export async function  createComment (comment: CommentClass): Promise<Boolean>{
     if(comment.body!="")
         getURL+=("&body="+comment.body.split(" ").join("_"))
     else{ return false}
-    if(comment.authorID!=-1)
-        getURL+=("&authorID="+comment.authorID)
-    else{ return false}
+    if(comment.authorID==undefined)
+        comment.authorID = -1
+
+    getURL+=("&authorID="+comment.authorID)
+
     console.log("replayingTo in the create func = " + comment.replyingTo)
     getURL+=("&replyingTo="+`${comment.replyingTo}`)
     getURL+=("&visableToAll="+`${comment.visableToAll}`)
