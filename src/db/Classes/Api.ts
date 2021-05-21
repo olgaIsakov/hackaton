@@ -8,24 +8,79 @@ export default class Api{
     // if i delete it get stuck..
 }
 
-function parserPost(json:any){
-    console.log("the json is: "+json)
-    console.log("the jason.body: "+json.body)
+async function  parserPost(callerID:number, json:any){
+    // console.log("the json is: "+json)
+    // console.log("the jason.body: "+json.body)
+    let p : Post = new Post(json.body,callerID,[], json.authorID)
+    p.PID=json.PID
+    p.callerID=callerID
+    console.log("in func parserPost caller ID is "+p.callerID)
 
-    return new Post(json.body, json.authorID, json.PID)
+    p.comments = await p.getComments()
+    console.log("the post object is ")
+    console.log(p)
+    return p
+}
+
+async function parserPosts(callerID:number, json:any){
+    console.log("inside get postSS "+json)
+    //console.log("the json.0: "+json.0)
+    var posts_list:Post[] = []
+    let i=0
+    let i_str= i.toString()
+    // console.log("i str is "+ i_str)
+    // console.log(json.i_str)
+    while(json[i_str] != undefined){
+        //console.log("i_str is "+ i)
+        posts_list.push( await parserPost(callerID,json[i_str]))
+        i++
+        i_str= i.toString()
+    }
+    console.log(posts_list)
+    return posts_list
+}
+
+function parserComment(callerID:number, json:any){
+    // console.log("the json is: "+json)
+    // console.log("the jason.body: "+json.body)
+    let comment : CommentClass = new CommentClass(json.CID,json.body,-1,json.PDI,json.replyingTo)
+    return comment
+}
+
+function parserComments(callerID:number, json:any){
+    console.log("inside get postSS "+json)
+    var comments_list:CommentClass[] = []
+    let i=0
+    let i_str= i.toString()
+    // console.log("i str is "+ i_str)
+    // console.log(json.i_str)
+    while(json[i_str] != undefined){
+        // console.log("i_str is "+ i)
+        comments_list.push( parserComment(callerID,json[i_str]))
+        i++
+        i_str= i.toString()
+    }
+    console.log(comments_list)
+    return comments_list
 }
 
 
-export async function getPostByPID(PID: number){
+export async function getPostByPID (callerID:number, PID: number) :Promise<Post>{
     console.log("in the getPostByPID func")
     let rt
     let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/dynamodb-readonly'+'?index='+PID.toString();
-    console.log("getPostByPID:\n"+getPostURL)
+    console.log("getPostByPID url is : "+getPostURL)
 
     await $.getJSON(getPostURL , function( json) {
-        rt=parserPost(json);
-        })  
-    return rt;
+        rt=parserPost(callerID, json);
+        }) 
+    if(rt==undefined){
+        return new Post("none");
+    } 
+    else{
+    console.log("in the getPostByPID func - rt is "+rt)
+    }
+    return rt
   }
 // works
 export async function login(username: string, password: string): Promise<boolean> {
@@ -41,15 +96,21 @@ export async function login(username: string, password: string): Promise<boolean
 }
 
 export async function getID(type: string){
-    let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/getNewID?type='+type;
+    console.log("in the func getID")
+    let getPostURL = 'https://2n20ndgn54.execute-api.eu-central-1.amazonaws.com/default/getNewID?type='+type;
+    console.log(getPostURL)
     let rt="-1";
     await $.getJSON(getPostURL , function(json) {
-        rt=json.body;
+        rt=json;
         })  
+    console.log(getPostURL)
+    console.log("new ID is - "+rt)
     return Number(rt);
   }
 
 async function checkExistUsernameURL(username:string) :Promise<Boolean>{
+    return false
+    // need implementation
     var rt="initial rt";
     let checkExistUsernameURL= '/////////////////////////'+'?username='+username
     await $.getJSON(checkExistUsernameURL , function( json) {
@@ -62,11 +123,14 @@ async function checkExistUsernameURL(username:string) :Promise<Boolean>{
 //works
 export async function signup(username: string, password: string): Promise<boolean>{
     console.log("in the func signup")
-    let getPostURL = 'https://5268gn05lh.execute-api.eu-central-1.amazonaws.com/default/signup'+'?username='+username+"&password="+password
+    let getPostURL = 'https://5268gn05lh.execute-api.eu-central-1.amazonaws.com/default/signup'+
+                     '?username='+username+"&password="+password+"&UID="+await getID("UID")
+    console.log(getPostURL)
     if(await checkExistUsernameURL(username)){
         console.log("Exists username!")
         return false
     }
+    console.log("gonna add user!")
     var rt="initial rt";
     console.log("signup address:\n"+getPostURL)
     await $.getJSON(getPostURL , function( json) {
@@ -76,22 +140,8 @@ export async function signup(username: string, password: string): Promise<boolea
     return false
 }
 
-function ConvertJsonToRespon(res: {[index: string]:any}): string{
-    return res["message"];
-}
 
-export function ConvertJsonToPosts(res: {[index: string]:any}){
-    var posts_list:Post[] =[];
-    var i = 0;
-    while(i.toString() in res ){
-        let j=i.toString();
 
-        var body=res[j]["body"];
-        var PID = res[j]["PID"];
-        posts_list.push(new Post(PID, body));
-  }
-  return posts_list;
-}
 
 export function ConvertJsonToSinglePostBody(res: {[index: string]:any}){
         return res["body"];
@@ -99,7 +149,8 @@ export function ConvertJsonToSinglePostBody(res: {[index: string]:any}){
 // not working - need to prase json
 export async function getAllPosts(callerID=-1, without_tags=[], search_key="", userID=-1){
     console.log("in the func getAllPosts")
-    let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/getAllpost?'+callerID.toString();
+    let getPostURL = 'https://ae1f8bklkk.execute-api.eu-central-1.amazonaws.com/default/getAllPost?callerID='+callerID.toString();
+    let rt
     if(search_key!=""){
        getPostURL+=("&"+search_key);
     }
@@ -110,8 +161,10 @@ export async function getAllPosts(callerID=-1, without_tags=[], search_key="", u
      getPostURL+=("&"+userID.toString());
     }
     console.log("getAllPosts address:\n"+getPostURL)
-
-    return $.getJSON(getPostURL, (res : {[index: string]:any}) => {return ConvertJsonToPosts(res);}) ;
+    await $.getJSON(getPostURL , async function( json) {
+        rt=await parserPosts(callerID, json);
+        }) 
+    return rt
 }
 
 
@@ -128,15 +181,19 @@ export function ConvertJsonToComments(res: {[index: string]:any}) : CommentClass
 }
 
 // need to prase json
-export function getComments(callerID:number, PID: number): CommentClass[]{
-    let getPostURL = 'https://08ynm4z546.execute-api.eu-central-1.amazonaws.com/getComments?'
-                    +callerID
-                    if (PID != undefined){
-                      getPostURL += '&PID='+PID.toString()
-                    }
-    let res = $.getJSON(getPostURL);
-    //let rt = (res : {[index: string]:any}) => {return ConvertJsonToComments(res);};
-    return ConvertJsonToComments(res);
+export async function getComments(callerID:number, PID: number): Promise<Array<CommentClass>>{
+    console.log("in the func getComments")
+    let rt=[new CommentClass()]
+    let getPostURL = 'https://7ycxmc4k53.execute-api.eu-central-1.amazonaws.com/default/getPostComments?callerID='+callerID
+    if (PID != undefined){
+        getPostURL += '&PID='+PID.toString()
+        }
+    console.log("crate post address:\n"+getPostURL)
+    await $.getJSON(getPostURL , function( json) {
+        rt=parserComments(callerID, json);
+        }) 
+    return rt
+
 
 }
 
@@ -145,7 +202,8 @@ export async function  createPost(post: Post){
     console.log("in the func create Post")
     let rt = "initial rt"
     if(post.PID==-1){return;}
-    let getPostURL = 'https://h94t6569ug.execute-api.eu-central-1.amazonaws.com/default/create_post?PID='+post.PID;
+    let getPostURL = 'https://h94t6569ug.execute-api.eu-central-1.amazonaws.com/default/create_post?PID='
+                        +post.PID+"&callerID="+post.callerID;
     if(post.body!=""){
         console.log("before replace "+ post.body)
         getPostURL+=("&body="+post.body.split(" ").join("_"))
@@ -153,9 +211,8 @@ export async function  createPost(post: Post){
     else{ return}
     if(post.authorID!=-1)
     getPostURL+=("&authorID="+post.authorID)
-    else{ return}
     getPostURL+=("&visableToAll="+`${post.visableToAll}`)
-    console.log("crate post address:\n"+getPostURL)
+    console.log("create post address:\n"+getPostURL)
     await $.getJSON(getPostURL , function( json) {
         rt=json.rt;
         })   
