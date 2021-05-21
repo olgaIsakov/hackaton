@@ -7,6 +7,18 @@ export default class Api{
 
     // if i delete it get stuck..
 }
+export async function getUserName(UID:string){
+    console.log("in the getUserName func")
+    let rt
+    let getPostURL = 'https://r47rlfvgrd.execute-api.eu-central-1.amazonaws.com/default/getUsenameByUID'+'?UID='+UID
+    console.log("getUserName url is : "+getPostURL)
+
+    await $.getJSON(getPostURL , function( json) {
+        rt=json.username
+        })
+    return rt
+}
+
 
 async function  parserPost(callerID:number, json:any){
     // console.log("the json is: "+json)
@@ -142,10 +154,6 @@ export async function signup(username: string, password: string): Promise<boolea
 
 
 
-
-export function ConvertJsonToSinglePostBody(res: {[index: string]:any}){
-        return res["body"];
-}
 // not working - need to prase json
 export async function getAllPosts(callerID=-1, without_tags=[], search_key="", userID=-1){
     console.log("in the func getAllPosts")
@@ -167,18 +175,6 @@ export async function getAllPosts(callerID=-1, without_tags=[], search_key="", u
     return rt
 }
 
-
-export function ConvertJsonToComments(res: {[index: string]:any}) : CommentClass[]{
-    var comments_list:CommentClass[] = [];
-    var i = 0;
-    while(i.toString() in res ){
-      var j=i.toString();
-      var body=res[j]["body"];
-      var CID = res[j]["CID"];
-      comments_list.push(new CommentClass(CID, body));
-    }
-    return comments_list;
-}
 
 // need to prase json
 export async function getComments(callerID:number, PID: number): Promise<Array<CommentClass>>{

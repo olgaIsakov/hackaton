@@ -3,7 +3,7 @@ import {InputSwitchModule} from 'primeng/inputswitch';
 import {CommentClass} from "src/db/Classes/CommentClass"
 import {Post} from "src/db/Classes/PostClass"
 import {User} from "src/db/Classes/User"
-import {createComment, createPost, signup, login, getPostByPID, getAllPosts, getID, getComments} from "src/db/Classes/Api"
+import {createComment, createPost, signup, login, getPostByPID, getAllPosts, getID, getComments, getUserName} from "src/db/Classes/Api"
 import { post } from 'jquery';
 
 @Component({
@@ -31,7 +31,8 @@ export class SubmitPostComponent implements OnInit {
         console.log("return value in submit func is: "+await login(new_user.username,new_user.password))
      }
    
-    getAllPosts(-1)
+   // getAllPosts(-1)
+   console.log(await getUserName("0"))
 
     this.text="this works!!"
   }
